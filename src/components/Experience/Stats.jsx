@@ -14,7 +14,7 @@ const stats = [
     label: "Countries",
   },
   {
-    value: "5+",
+    value: "2+",
     label: "Years Software Development",
   },
 ];

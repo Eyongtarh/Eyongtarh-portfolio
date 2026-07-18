@@ -19,7 +19,8 @@ export default function Navbar() {
     <header className={scrolled ? "navbar navbar-scrolled" : "navbar"}>
       <div className="nav-container">
         <a href="/" className="logo">
-          Eyongtarh
+          <img src="/logo.png" alt="EB Consulting" className="logo-image" />
+          <span>Eyongtarh Besong</span>
         </a>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"}>

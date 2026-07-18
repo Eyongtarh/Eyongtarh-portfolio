@@ -5,7 +5,7 @@ const experience = [
     role: "Full Stack Software Developer",
     company: "Independent / Remote Contracts",
     location: "Sweden",
-    period: "February 2024 – Present",
+    period: "February 2024 - Present",
     summary:
       "Develop modern, secure and scalable web applications for clients.",
     highlights: [
@@ -30,8 +30,8 @@ const experience = [
     icon: "fa-solid fa-chart-line",
     role: "Business Consultant",
     company: "MECANUS",
-    location: "Yaoundé, Cameroon",
-    period: "July 2019 – December 2022",
+    location: "Buea, Cameroon",
+    period: "July 2019 - December 2022",
     summary: "Business consulting and project advisory services.",
     highlights: [
       "Provided consulting for local and international clients.",

@@ -30,7 +30,7 @@ const interests = [
     icon: "fa-solid fa-person-hiking",
     title: "Outdoor Activities",
     description:
-      "I enjoy travelling, walking, and spending time outdoors to recharge and maintain a healthy work-life balance.",
+      "I enjoy staying active and working on hands-on projects. I'm an avid lawn tennis player and have been a club member since 1998. I also enjoy automotive mechanics, furniture making and woodworking, swimming, hiking, gardening, home décor, and DIY home improvement projects.",
   },
   {
     icon: "fa-solid fa-users",

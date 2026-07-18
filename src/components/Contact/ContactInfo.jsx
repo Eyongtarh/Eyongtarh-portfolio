@@ -4,19 +4,19 @@ const contactItems = [
   {
     icon: "fa-solid fa-envelope",
     title: "Email",
-    value: "your.email@example.com",
-    link: "mailto:your.email@example.com",
+    value: "eyongtarhb@gmail.com.com",
+    link: "mailto:eyongtarhb@gmail.com.com",
   },
   {
     icon: "fa-solid fa-phone",
     title: "Phone",
-    value: "+46 XX XXX XX XX",
-    link: "tel:+46XXXXXXXX",
+    value: "+46 733994133",
+    link: "tel:+46733994133",
   },
   {
     icon: "fa-solid fa-location-dot",
     title: "Location",
-    value: "Stockholm, Sweden",
+    value: "Göteborg, Sweden",
     link: null,
   },
 ];
@@ -25,12 +25,12 @@ const socialLinks = [
   {
     icon: "fab fa-github",
     name: "GitHub",
-    url: "https://github.com/YOUR_USERNAME",
+    url: "https://github.com/Eyongtarh",
   },
   {
     icon: "fab fa-linkedin",
     name: "LinkedIn",
-    url: "https://linkedin.com/in/YOUR_USERNAME",
+    url: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BB4C9QtntQn2cFJU2nmfRNQ%3D%3D",
   },
   {
     icon: "fa-solid fa-file-arrow-down",

@@ -16,17 +16,17 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: "fab fa-github",
-      url: "https://github.com/YOUR_GITHUB_USERNAME",
+      url: "https://github.com/Eyongtarh",
       label: "GitHub",
     },
     {
       icon: "fab fa-linkedin-in",
-      url: "https://linkedin.com/in/YOUR_LINKEDIN_USERNAME",
+      url: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BB4C9QtntQn2cFJU2nmfRNQ%3D%3D",
       label: "LinkedIn",
     },
     {
       icon: "fa-solid fa-envelope",
-      url: "mailto:your.email@example.com",
+      url: "mailto:eyongtarh@gmail.com",
       label: "Email",
     },
   ];
@@ -87,7 +87,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>© {currentYear} Eyongtarh Besong . All Rights Reserved.</p>
 
-          <a href="#hero" className="back-to-top">
+          <a href="/" className="back-to-top">
             <i className="fa-solid fa-arrow-up"></i>
           </a>
         </div>

@@ -2,8 +2,8 @@ const projects = [
   {
     github: "Eyongtarh-portfolio",
     featured: true,
-    order: 1,
-    image: "/images/projects/portfolio.webp",
+    order: 4,
+    image: "/images/projects/portfolio.png",
     demo: "https://your-domain.com",
     category: "Frontend",
     highlight: "Personal Portfolio",
@@ -13,7 +13,7 @@ const projects = [
   {
     github: "Ekpaw-Spicies",
     featured: true,
-    order: 2,
+    order: 1,
     image: "/images/projects/ekpaw.png",
     demo: "https://ekpaw-spicies-e70a831cb30f.herokuapp.com",
     category: "Full Stack",

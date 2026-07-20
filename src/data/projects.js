@@ -1,6 +1,6 @@
 const projects = [
   {
-    github: "eyongtarh-portfolio",
+    github: "Eyongtarh-portfolio",
     featured: true,
     order: 1,
     image: "/images/projects/portfolio.png",

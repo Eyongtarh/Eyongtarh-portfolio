@@ -179,6 +179,7 @@ export default function Hero() {
             ))}
           </m.div>
         </div>
+        <FloatingIcons />
         <m.div
           className="hero-image-wrapper"
           initial={{
@@ -194,7 +195,6 @@ export default function Hero() {
             duration: 0.8,
           }}
         >
-          <FloatingIcons />
           <m.div
             className="hero-image"
             animate={{

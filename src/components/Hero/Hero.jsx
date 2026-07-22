@@ -134,7 +134,7 @@ export default function Hero() {
               duration: 0.7,
             }}
           >
-            <a href="#projects" className="btn">
+            <a href="#projects" className="btn secondary-btn">
               <i className="fas fa-code"></i>
               View Projects
             </a>

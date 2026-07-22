@@ -11,12 +11,15 @@ import LoadingSkeleton from "./components/Projects/LoadingSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import useLoading from "./hooks/useLoading";
+import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
 const loading = useLoading();
 function App() {
   return (
     <>
+      <AnimatedBackground />
+      <LoadingScreen isLoading={loading} />
       <LoadingScreen isLoading={loading} />
       {!loading && (
         <>

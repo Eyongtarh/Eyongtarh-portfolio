@@ -1,0 +1,131 @@
+/*
+   Glow Layer
+*/
+
+.background-glow {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -3;
+
+  overflow: hidden;
+}
+
+.background-glow::before {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+
+  height: 650px;
+
+  top: -250px;
+
+  left: -200px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.28), transparent 70%);
+
+  filter: blur(40px);
+
+  animation: moveBlue 18s ease-in-out infinite alternate;
+}
+
+.background-glow::after {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+
+  height: 650px;
+
+  right: -220px;
+
+  bottom: -250px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%);
+
+  filter: blur(40px);
+
+  animation: moveCyan 22s ease-in-out infinite alternate;
+}
+
+/*
+   Grid
+*/
+
+.background-grid {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+
+  mask-image: radial-gradient(circle, black 35%, transparent 95%);
+}
+
+/*
+   Noise
+*/
+
+.background-noise {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  opacity: 0.05;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/*
+   Animations
+*/
+
+@keyframes moveBlue {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(120px, 40px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(40px, 180px) scale(0.9);
+  }
+}
+
+@keyframes moveCyan {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-120px, -60px) scale(1.15);
+  }
+
+  100% {
+    transform: translate(-40px, -180px) scale(0.9);
+  }
+}

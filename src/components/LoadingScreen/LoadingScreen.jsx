@@ -6,7 +6,7 @@ function LoadingScreen({ isLoading }) {
       <div className="loader-content">
         <img
           className="loader-logo"
-          src="/profile.jpeg"
+          src="/logo.png"
           alt="Eyongtarh Besong"
           width="90"
           height="90"

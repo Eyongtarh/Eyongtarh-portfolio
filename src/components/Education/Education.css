@@ -1,56 +1,269 @@
+/*
+========================================
+Education Section
+========================================
+*/
+
 .education {
   padding: 120px 8%;
+
+  background: var(--background);
 }
 
 .education h2 {
   text-align: center;
+
   margin-bottom: 70px;
 }
 
+/*
+========================================
+Grid
+========================================
+*/
+
 .education-grid {
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+
+  gap: 35px;
 }
 
+/*
+========================================
+Card
+========================================
+*/
+
 .education-card {
+  position: relative;
+
   background: var(--surface);
-  border-radius: 18px;
-  padding: 40px;
+
   border: 1px solid var(--border);
-  transition: 0.35s;
+
+  border-radius: 20px;
+
+  padding: 40px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
 }
 
 .education-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px);
+
   border-color: var(--primary);
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
+
+/*
+========================================
+Animated Border
+========================================
+*/
+
+.education-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  padding: 1px;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    transparent,
+    var(--primary),
+    transparent,
+    var(--secondary)
+  );
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/*
+========================================
+Glow
+========================================
+*/
+
+.education-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.25s ease;
+
+  background: radial-gradient(
+    circle at top right,
+    rgba(59, 130, 246, 0.12),
+    transparent 60%
+  );
+}
+
+.education-card:hover::after {
+  opacity: 1;
+}
+
+/*
+========================================
+Icon
+========================================
+*/
 
 .education-card i {
-  font-size: 2rem;
+  width: 72px;
+
+  height: 72px;
+
+  margin-bottom: 25px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 18px;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  border: 1px solid rgba(59, 130, 246, 0.2);
+
   color: var(--primary);
-  margin-bottom: 20px;
+
+  font-size: 1.8rem;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+.education-card:hover i {
+  transform: translateY(-4px) scale(1.08);
+
+  background: rgba(6, 182, 212, 0.16);
+
+  box-shadow: 0 12px 28px rgba(6, 182, 212, 0.25);
+}
+
+/*
+========================================
+Typography
+========================================
+*/
+
 .education-card h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+
+  transition: color 0.25s ease;
+}
+
+.education-card:hover h3 {
+  color: var(--secondary);
 }
 
 .education-card h4 {
+  margin-bottom: 10px;
+
   color: var(--primary);
+
   font-size: 1rem;
+
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
 .education-card span {
   display: inline-block;
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-bottom: 18px;
+
+  margin-bottom: 20px;
+
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(59, 130, 246, 0.08);
+
+  border: 1px solid rgba(59, 130, 246, 0.2);
+
+  color: var(--secondary);
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
 }
 
 .education-card p {
+  color: var(--muted);
+
   line-height: 1.8;
+}
+
+/*
+========================================
+Responsive
+========================================
+*/
+
+@media (max-width: 992px) {
+  .education {
+    padding: 110px 6%;
+  }
+}
+
+@media (max-width: 768px) {
+  .education {
+    padding: 100px 5%;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-card {
+    padding: 30px;
+  }
+
+  .education-card i {
+    width: 60px;
+
+    height: 60px;
+
+    font-size: 1.5rem;
+  }
 }

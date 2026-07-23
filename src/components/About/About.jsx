@@ -39,10 +39,10 @@ export default function About() {
             modern, scalable, and user-friendly web applications. By combining
             software engineering expertise with years of consulting and business
             experience, I create solutions that are technically robust,
-            performance-driven, and aligned with real business goals. I enjoy
+            performance driven, and aligned with real business goals. I enjoy
             solving challenging problems, learning emerging technologies, and
             developing applications that deliver meaningful value to users and
-            organizations.
+            organisations.
           </p>
         </motion.div>
 

@@ -41,42 +41,6 @@ A modern, responsive, and interactive portfolio website showcasing my skills, ex
 
 ---
 
-## 🎨 Website Sections
-
-### Home
-
-A welcoming hero section introducing who I am, along with social links and quick navigation.
-
-### About
-
-An overview of my background, passion for software development, and career goals.
-
-### Skills
-
-A collection of technologies, programming languages, frameworks, and tools I use.
-
-### Experience
-
-Professional and practical experience highlighting responsibilities and achievements.
-
-### Education
-
-Academic background, certifications, and continuous learning journey.
-
-### Projects
-
-A showcase of selected software development projects demonstrating practical experience.
-
-### Interests
-
-Personal interests that complement my professional growth and creativity.
-
-### Contact
-
-Multiple ways to connect through email and professional social platforms.
-
----
-
 ## Tech Stack
 
 ### Frontend
@@ -107,39 +71,93 @@ Although this portfolio is frontend-based, my primary backend technologies inclu
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
-```
-portfolio/
+```text
+eyongtarh-portfolio/
+├── .vscode/
+├── dist/
+├── node_modules/
 │
 ├── public/
+│   ├── errors/
+│   ├── images/
+│   │   └── projects/
+│   │       ├── ekpaw.png
+│   │       ├── hero.png
+│   │       ├── portfolio.png
+│   │       ├── riders.png
+│   │       └── tastyhub.png
+│   ├── 404.html
 │   ├── cv.pdf
+│   ├── favicon.ico
+│   ├── humans.txt
 │   ├── logo.png
-│   └── profile.jpeg
+│   ├── og-image.png
+│   ├── profile.jpeg
+│   ├── robots.txt
+│   ├── security.txt
+│   ├── site.webmanifest
+│   └── sitemap.xml
 │
 ├── src/
 │   ├── assets/
+│   │   ├── errors/
+│   │   │   ├── 404.png
+│   │   │   ├── access-denied.png
+│   │   │   ├── error.png
+│   │   │   ├── loading-error.png
+│   │   │   └── maintenance.png
+│   │   │
+│   │   ├── icons/
+│   │   │
+│   │   ├── images/
+│   │   │   └── hero-bg.svg
+│   │   │
+│   │   └── styles/
+│   │       ├── animations.css
+│   │       ├── globals.css
+│   │       ├── reset.css
+│   │       ├── typography.css
+│   │       └── variables.css
 │   │
 │   ├── components/
-│   │   ├── Navbar/
-│   │   ├── Hero/
 │   │   ├── About/
-│   │   ├── Skills/
-│   │   ├── Experience/
-│   │   ├── Education/
-│   │   ├── Projects/
-│   │   ├── Interests/
+│   │   ├── AnimatedBackground/
 │   │   ├── Contact/
-│   │   └── Footer/
+│   │   ├── CursorGlow/
+│   │   ├── Education/
+│   │   ├── Experience/
+│   │   ├── Footer/
+│   │   ├── Hero/
+│   │   ├── Interests/
+│   │   ├── LoadingScreen/
+│   │   ├── Navbar/
+│   │   ├── Projects/
+│   │   ├── ScrollProgress/
+│   │   ├── Skills/
+│   │   ├── ErrorBoundary.jsx
+│   │   ├── ErrorIllustration.jsx
+│   │   ├── ErrorLayout.css
+│   │   └── ErrorLayout.jsx
 │   │
-|   |
+│   ├── data/
+│   ├── hooks/
+│   ├── pages/
+│   ├── utils/
+│   ├── App.css
 │   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
+│   └── main.jsx
 │
+├── .env
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── mythings.md
 ├── package.json
-├── vite.config.js
-└── README.md
+├── package-lock.json
+├── README.md
+└── vite.config.js
 ```
 
 ---
@@ -223,16 +241,39 @@ Each featured project should include:
 
 ---
 
-## 📸 Screenshots
+## 🎨 Website Sections
 
-Add screenshots here after deployment.
+### Home
 
-```text
-docs/
-├── home.png
-├── projects.png
-└── contact.png
-```
+A welcoming hero section introducing who I am, along with social links and quick navigation.
+
+### About
+
+An overview of my background, passion for software development, and career goals.
+
+### Skills
+
+A collection of technologies, programming languages, frameworks, and tools I use.
+
+### Experience
+
+Professional and practical experience highlighting responsibilities and achievements.
+
+### Education
+
+Academic background, certifications, and continuous learning journey.
+
+### Projects
+
+A showcase of selected software development projects demonstrating practical experience.
+
+### Interests
+
+Personal interests that complement my professional growth and creativity.
+
+### Contact
+
+Multiple ways to connect through email and professional social platforms.
 
 ---
 

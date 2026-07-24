@@ -2,18 +2,12 @@ import { useEffect, useState } from "react";
 import "./CursorGlow.css";
 
 export default function CursorGlow() {
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
+  const [position, setPosition] = useState(() => ({
+    x: typeof window !== "undefined" ? window.innerWidth / 2 : 0,
+    y: typeof window !== "undefined" ? window.innerHeight / 2 : 0,
+  }));
 
   useEffect(() => {
-    // Center the glow when the page first loads
-    setPosition({
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-    });
-
     const handleMouseMove = (e) => {
       setPosition({
         x: e.clientX,

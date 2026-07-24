@@ -1,3 +1,4 @@
+/* global process */
 import purgecss from "@fullhuman/postcss-purgecss";
 
 const purgeCSSPlugin = purgecss({

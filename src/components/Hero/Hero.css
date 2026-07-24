@@ -20,10 +20,42 @@ Hero Section
   padding: 120px 8%;
 
   overflow: hidden;
+}
+/*
+========================================
+Hero Video
+========================================
+*/
 
-  background: var(--background);
+.hero-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  filter: brightness(0.45);
 }
 
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(7, 10, 18, 0.72);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
 /*
 ========================================
 Hero Content
@@ -381,6 +413,8 @@ Hero Background Glow
 
   position: absolute;
 
+  z-index: 1;
+
   top: -180px;
 
   right: -180px;
@@ -406,6 +440,8 @@ Hero Background Glow
   content: "";
 
   position: absolute;
+
+  z-index: 1;
 
   bottom: -220px;
 
@@ -490,6 +526,8 @@ Scroll Indicator
   left: 50%;
 
   bottom: 35px;
+
+  z-index: 2;
 
   transform: translateX(-50%);
 

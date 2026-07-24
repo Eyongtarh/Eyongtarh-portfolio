@@ -1,5 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import "./Hero.css";
+import backgroundVideo from "../../assets/videos/blue.mp4";
 
 const socialLinks = [
   {
@@ -23,6 +24,14 @@ export default function Hero() {
   return (
     <LazyMotion features={domAnimation}>
       <section className="hero" id="home">
+        {/* Background Video */}
+        <video className="hero-video" autoPlay muted loop playsInline>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+
+        {/* Dark Overlay */}
+        <div className="hero-overlay"></div>
+
         <div className="hero-content">
           <m.a
             href="#contact"
@@ -112,11 +121,11 @@ export default function Hero() {
             }}
           >
             I design and build scalable, user focused web applications using
-            <strong> React</strong>,<strong> Django</strong>,
-            <strong>Python</strong>,<strong> PostgreSQL</strong>, and
-            <strong> JavaScript</strong>, transforming ideas into secure, high
-            performance solutions through cloud deployment, API integration,
-            database design, and automation.
+            <strong> React</strong>, <strong>Django</strong>,
+            <strong> Python</strong>, <strong>PostgreSQL</strong>, and
+            <strong> JavaScript</strong>, transforming ideas into secure,
+            high-performance solutions through cloud deployment, API
+            integration, database design, and automation.
           </m.p>
 
           <m.div
@@ -178,6 +187,7 @@ export default function Hero() {
             ))}
           </m.div>
         </div>
+
         <m.div
           className="hero-image-wrapper"
           initial={{

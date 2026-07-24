@@ -20,39 +20,45 @@ Hero Section
   padding: 120px 8%;
 
   overflow: hidden;
+
+  isolation: isolate;
 }
 /*
 ========================================
-Hero Video
+Hero Video Background
 ========================================
 */
 
 .hero-video {
   position: absolute;
+
   inset: 0;
 
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
+
   object-position: center;
 
-  z-index: 0;
+  z-index: -2;
 
   pointer-events: none;
 
-  opacity: 0.35;
-
   filter: brightness(0.45);
+
+  transform: scale(1.02);
 }
 
 .hero-overlay {
   position: absolute;
+
   inset: 0;
 
-  background: rgba(7, 10, 18, 0.72);
+  background: rgba(5, 10, 20, 0.72);
 
-  z-index: 1;
+  z-index: -1;
 
   pointer-events: none;
 }
@@ -413,8 +419,6 @@ Hero Background Glow
 
   position: absolute;
 
-  z-index: 1;
-
   top: -180px;
 
   right: -180px;
@@ -434,14 +438,14 @@ Hero Background Glow
   pointer-events: none;
 
   filter: blur(30px);
+
+  z-index: 0;
 }
 
 .hero::after {
   content: "";
 
   position: absolute;
-
-  z-index: 1;
 
   bottom: -220px;
 
@@ -458,6 +462,8 @@ Hero Background Glow
   pointer-events: none;
 
   filter: blur(40px);
+
+  z-index: 0;
 }
 
 /*
@@ -527,8 +533,6 @@ Scroll Indicator
 
   bottom: 35px;
 
-  z-index: 2;
-
   transform: translateX(-50%);
 
   width: 32px;
@@ -550,6 +554,8 @@ Scroll Indicator
   text-decoration: none;
 
   transition: border-color 0.25s ease;
+
+  z-index: 2;
 }
 
 .scroll-indicator:hover {

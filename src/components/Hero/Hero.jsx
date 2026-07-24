@@ -1,6 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import "./Hero.css";
 import backgroundVideo from "../../assets/videos/blue.mp4";
+import "./Hero.css";
 
 const socialLinks = [
   {
@@ -24,8 +24,15 @@ export default function Hero() {
   return (
     <LazyMotion features={domAnimation}>
       <section className="hero" id="home">
-        {/* Background Video */}
-        <video className="hero-video" autoPlay muted loop playsInline>
+        {/* Hero Background Video */}
+        <video
+          className="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
 
@@ -127,7 +134,6 @@ export default function Hero() {
             high-performance solutions through cloud deployment, API
             integration, database design, and automation.
           </m.p>
-
           <m.div
             className="hero-buttons"
             initial={{

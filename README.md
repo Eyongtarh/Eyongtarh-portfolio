@@ -525,3 +525,5 @@ Made with ❤️ using React, Vite, and Framer Motion by **Eyongtarh Besong**.
 ```
 
 ```
+
+![HTML validation report](public/images/projects/html_validation.png)

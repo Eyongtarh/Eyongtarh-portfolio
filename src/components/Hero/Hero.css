@@ -590,6 +590,14 @@ Button Polish
   font-size: 0.95rem;
 }
 
+.background-glow::before,
+.background-glow::after {
+  will-change: transform;
+}
+.hero-image,
+.hero-image img {
+  will-change: transform;
+}
 /*
 ========================================
 Responsive

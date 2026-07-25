@@ -123,7 +123,7 @@ eyongtarh-portfolio/
 │   ├── humans.txt
 │   ├── logo.png
 │   ├── og-image.png
-│   ├── profile.jpeg
+│   ├── profile.webp
 │   ├── robots.txt
 │   ├── security.txt
 │   ├── site.webmanifest

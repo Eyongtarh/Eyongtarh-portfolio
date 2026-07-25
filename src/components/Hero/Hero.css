@@ -339,9 +339,9 @@ Profile Image
 .hero-image {
   position: relative;
 
-  width: 430px;
+  width: 360px;
 
-  height: 430px;
+  height: 420px;
 
   display: flex;
 
@@ -405,6 +405,8 @@ Animated Gradient Border
   height: calc(100% - 14px);
 
   object-fit: cover;
+
+  object-position: center top;
 
   border-radius: 50%;
 }

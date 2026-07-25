@@ -223,8 +223,8 @@ export default function Hero() {
             <img
               src="/profile.webp"
               alt="Eyongtarh Besong"
-              width="350"
-              height="350"
+              width="430"
+              height="392"
               loading="eager"
               decoding="async"
               fetchPriority="high"

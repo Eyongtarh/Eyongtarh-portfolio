@@ -246,7 +246,7 @@ export default function Hero() {
           }}
           aria-label="Scroll to About section"
         >
-          <span></span>
+          <span>Scroll Down</span>
         </m.a>
       </section>
     </LazyMotion>

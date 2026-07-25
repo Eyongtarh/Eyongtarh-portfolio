@@ -223,8 +223,8 @@ export default function Hero() {
             <img
               src="/profile.webp"
               alt="Eyongtarh Besong"
-              width="168"
-              height="200"
+              width="350"
+              height="350"
               loading="eager"
               decoding="async"
               fetchPriority="high"
@@ -246,7 +246,7 @@ export default function Hero() {
           }}
           aria-label="Scroll to About section"
         >
-          <span>Scroll Down</span>
+          <span></span>
         </m.a>
       </section>
     </LazyMotion>

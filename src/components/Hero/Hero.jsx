@@ -31,7 +31,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>

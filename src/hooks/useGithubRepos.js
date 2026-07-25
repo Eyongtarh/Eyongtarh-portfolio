@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
+import repos from "../data/github-repos.json";
 import customProjects from "../data/projects";
-
-const USERNAME = "Eyongtarh";
 
 export default function useGithubRepos() {
   const [projects, setProjects] = useState([]);
@@ -9,41 +8,33 @@ export default function useGithubRepos() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    async function loadRepos() {
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${USERNAME}/repos?sort=updated&per_page=100`,
-        );
+    try {
+      const merged = repos
+        .filter((repo) => !repo.fork)
+        .map((repo) => {
+          const custom = customProjects.find(
+            (project) => project.github === repo.name,
+          );
 
-        if (!response.ok) {
-          throw new Error("Unable to fetch repositories.");
-        }
+          return {
+            ...repo,
+            ...custom,
+          };
+        })
+        .filter((repo) => repo.featured)
+        .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 
-        const repos = await response.json();
-
-        const merged = repos
-          .filter((repo) => !repo.fork)
-          .map((repo) => {
-            const custom = customProjects.find((p) => p.github === repo.name);
-
-            return {
-              ...repo,
-              ...custom,
-            };
-          })
-          .filter((repo) => repo.featured)
-          .sort((a, b) => a.order - b.order);
-
-        setProjects(merged);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
+      setProjects(merged);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load projects.");
+    } finally {
+      setLoading(false);
     }
-
-    loadRepos();
   }, []);
 
-  return { projects, loading, error };
+  return {
+    projects,
+    loading,
+    error,
+  };
 }

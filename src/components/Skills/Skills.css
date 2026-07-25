@@ -97,8 +97,11 @@
 }
 
 .skill-badge {
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 
+  position: relative;
   overflow: hidden;
 
   padding: 14px 22px;

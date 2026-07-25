@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function TimelineItem({ item, index }) {
+  const Icon = item.icon;
+
   return (
     <motion.article
       className="timeline-item"
@@ -16,7 +19,15 @@ export default function TimelineItem({ item, index }) {
       transition={{ duration: 0.6 }}
     >
       <div className="timeline-marker">
-        <i className={item.icon}></i>
+        <Icon
+          size={26}
+          style={{
+            color: item.color,
+          }}
+          aria-hidden="true"
+          role="presentation"
+          focusable="false"
+        />
       </div>
 
       <div className="timeline-card">
@@ -27,7 +38,15 @@ export default function TimelineItem({ item, index }) {
         <h4>{item.company}</h4>
 
         <p className="timeline-location">
-          <i className="fa-solid fa-location-dot"></i>
+          <FaMapMarkerAlt
+            size={14}
+            style={{
+              color: "#EF4444",
+              marginRight: "8px",
+              verticalAlign: "middle",
+            }}
+            aria-hidden="true"
+          />
           {item.location}
         </p>
 

@@ -140,6 +140,7 @@ eyongtarh-portfolio/
 │   │   │
 │   │   ├── icons/
 │   │   │
+|   |   |
 │   │   ├── images/
 │   │   │   └── hero-bg.svg
 │   │   │
@@ -196,10 +197,14 @@ eyongtarh-portfolio/
 
 ## Featured Projects
 
+- **Eyongtarh Portfolio**: Responsive personal portfolio showcasing projects, skills, and professional experience, built with React, JavaScript, and Vite.
+
 - **Ekpaw Spicies** : Python business automation with Google Sheets
   integration.
+
 - **Riders Club** : Full-stack Django application for a
   motorcycle/bicycle club.
+
 - **Tarh TastyHub** : Restaurant and food ordering platform with
   Stripe payments.
 

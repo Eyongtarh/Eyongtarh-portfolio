@@ -1,4 +1,11 @@
 import "./Footer.css";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaDownload,
+  FaArrowUp,
+} from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,17 +22,20 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      icon: "fab fa-github",
+      icon: FaGithub,
+      color: "#ffffff",
       url: "https://github.com/Eyongtarh",
       label: "GitHub",
     },
     {
-      icon: "fab fa-linkedin-in",
+      icon: FaLinkedinIn,
+      color: "#0A66C2",
       url: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BB4C9QtntQn2cFJU2nmfRNQ%3D%3D",
       label: "LinkedIn",
     },
     {
-      icon: "fa-solid fa-envelope",
+      icon: FaEnvelope,
+      color: "#ffffff",
       url: "mailto:eyongtarh@gmail.com",
       label: "Email",
     },
@@ -60,23 +70,37 @@ export default function Footer() {
             <h3>Connect</h3>
 
             <div className="social-icons">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target={social.url.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    social.url.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  aria-label={`Visit my ${social.label}${
-                    social.url.startsWith("http") ? " (opens in a new tab)" : ""
-                  }`}
-                >
-                  <i className={social.icon} aria-hidden="true"></i>
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+
+                return (
+                  <a
+                    key={social.label}
+                    href={social.url}
+                    target={
+                      social.url.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      social.url.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    aria-label={`Visit my ${social.label}${
+                      social.url.startsWith("http")
+                        ? " (opens in a new tab)"
+                        : ""
+                    }`}
+                  >
+                    <Icon
+                      size={22}
+                      style={{ color: social.color }}
+                      aria-hidden="true"
+                      role="presentation"
+                      focusable="false"
+                    />
+                  </a>
+                );
+              })}
             </div>
 
             <a
@@ -85,7 +109,11 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="download-cv"
             >
-              <i className="fa-solid fa-download"></i>
+              <FaDownload
+                size={16}
+                style={{ marginRight: "8px" }}
+                aria-hidden="true"
+              />
               Download CV
             </a>
           </div>
@@ -95,7 +123,7 @@ export default function Footer() {
           <p>© {currentYear} Eyongtarh Besong. All Rights Reserved.</p>
 
           <a href="#home" className="back-to-top" aria-label="Back to top">
-            <i className="fa-solid fa-arrow-up" aria-hidden="true"></i>
+            <FaArrowUp size={18} aria-hidden="true" />
           </a>
         </div>
       </div>

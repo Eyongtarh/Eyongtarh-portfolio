@@ -1,26 +1,30 @@
 import { motion } from "framer-motion";
+import { FaLaptopCode, FaGraduationCap, FaUniversity } from "react-icons/fa";
 import "./Education.css";
 
 const education = [
   {
-    icon: "fas fa-laptop-code",
+    icon: FaLaptopCode,
+    color: "#3B82F6",
     title: "Diploma in Full Stack Software Development",
     subtitle: "Code Institute (University of the West of Scotland accredited)",
     period: "06/2024 - 03/2026",
     text: "Comprehensive training in modern full-stack software development, including React, JavaScript, Python, Django, PostgreSQL, Git, Agile methodologies and cloud deployment.",
   },
   {
-    icon: "fas fa-graduation-cap",
+    icon: FaGraduationCap,
+    color: "#F59E0B",
     title: "MSc in Economics",
     subtitle: "University of Gothenburg, Sweden",
-    period: "2009/2010-2011/12, 67.5 credits",
+    period: "2009/2010 - 2011/2012, 67.5 credits",
     text: "Advanced studies in economics with emphasis on quantitative analysis, economic policy and research methods.",
   },
   {
-    icon: "fas fa-university",
+    icon: FaUniversity,
+    color: "#10B981",
     title: "BSc in Economics",
     subtitle: "University of Buea, Cameroon",
-    period: "2001/2002-2003/2004",
+    period: "2001/2002 - 2003/2004",
     text: "Built a strong foundation in economics, finance, statistics, management and business analysis.",
   },
 ];
@@ -38,26 +42,38 @@ export default function Education() {
         </motion.h2>
 
         <div className="education-grid">
-          {education.map((item, index) => (
-            <motion.article
-              key={index}
-              className="education-card"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <i className={item.icon}></i>
+          {education.map((item, index) => {
+            const Icon = item.icon;
 
-              <h3>{item.title}</h3>
+            return (
+              <motion.article
+                key={item.title}
+                className="education-card"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Icon
+                  size={36}
+                  style={{
+                    color: item.color,
+                  }}
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                />
 
-              <h4>{item.subtitle}</h4>
+                <h3>{item.title}</h3>
 
-              {item.period && <span>{item.period}</span>}
+                <h4>{item.subtitle}</h4>
 
-              <p>{item.text}</p>
-            </motion.article>
-          ))}
+                {item.period && <span>{item.period}</span>}
+
+                <p>{item.text}</p>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

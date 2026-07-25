@@ -46,7 +46,7 @@ Hero Video Background
 
   pointer-events: none;
 
-  filter: brightness(0.45);
+  filter: brightness(1);
 
   transform: scale(1.02);
 }
@@ -339,7 +339,7 @@ Profile Image
 .hero-image {
   position: relative;
 
-  width: 360px;
+  width: 420px;
 
   height: 420px;
 
@@ -406,7 +406,7 @@ Animated Gradient Border
 
   object-fit: cover;
 
-  object-position: center top;
+  object-position: 100% top;
 
   border-radius: 50%;
 }

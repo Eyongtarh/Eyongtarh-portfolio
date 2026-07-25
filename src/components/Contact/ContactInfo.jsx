@@ -1,20 +1,30 @@
 import { motion } from "framer-motion";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const contactItems = [
   {
-    icon: "fa-solid fa-envelope",
+    icon: FaEnvelope,
+    color: "#ffffff",
     title: "Email",
     value: "eyongtarhb@gmail.com",
     link: "mailto:eyongtarhb@gmail.com",
   },
   {
-    icon: "fa-solid fa-phone",
+    icon: FaPhone,
+    color: "#22C55E",
     title: "Phone",
     value: "+46 733994133",
     link: "tel:+46733994133",
   },
   {
-    icon: "fa-solid fa-location-dot",
+    icon: FaMapMarkerAlt,
+    color: "#EF4444",
     title: "Location",
     value: "Göteborg, Sweden",
     link: "https://maps.google.com/?q=Gothenburg,Sweden",
@@ -23,17 +33,20 @@ const contactItems = [
 
 const socialLinks = [
   {
-    icon: "fab fa-github",
+    icon: FaGithub,
+    color: "#ffffff",
     name: "GitHub",
     url: "https://github.com/Eyongtarh",
   },
   {
-    icon: "fab fa-linkedin",
+    icon: FaLinkedin,
+    color: "#0A66C2",
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BB4C9QtntQn2cFJU2nmfRNQ%3D%3D",
   },
   {
-    icon: "fa-solid fa-envelope",
+    icon: FaEnvelope,
+    color: "#ffffff",
     name: "Email",
     url: "mailto:eyongtarhb@gmail.com",
   },
@@ -57,51 +70,77 @@ export default function ContactInfo() {
       </p>
 
       <div className="contact-list">
-        {contactItems.map((item) => (
-          <div className="contact-item" key={item.title}>
-            <div className="contact-icon">
-              <i className={item.icon} aria-hidden="true"></i>
-            </div>
+        {contactItems.map((item) => {
+          const Icon = item.icon;
 
-            <div>
-              <h4>{item.title}</h4>
+          return (
+            <div className="contact-item" key={item.title}>
+              <div className="contact-icon">
+                <Icon
+                  size={22}
+                  style={{
+                    color: item.color,
+                  }}
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                />
+              </div>
 
-              {item.link ? (
-                <a
-                  href={item.link}
-                  target={item.link.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    item.link.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <span>{item.value}</span>
-              )}
+              <div>
+                <h4>{item.title}</h4>
+
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    target={item.link.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      item.link.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <span>{item.value}</span>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="social-links">
-        {socialLinks.map((social) => (
-          <a
-            key={social.name}
-            href={social.url}
-            target={social.url.startsWith("http") ? "_blank" : undefined}
-            rel={
-              social.url.startsWith("http") ? "noopener noreferrer" : undefined
-            }
-            aria-label={`Visit my ${social.name}${
-              social.url.startsWith("http") ? " (opens in a new tab)" : ""
-            }`}
-          >
-            <i className={social.icon} aria-hidden="true"></i>
-          </a>
-        ))}
+        {socialLinks.map((social) => {
+          const Icon = social.icon;
+
+          return (
+            <a
+              key={social.name}
+              href={social.url}
+              target={social.url.startsWith("http") ? "_blank" : undefined}
+              rel={
+                social.url.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+              aria-label={`Visit my ${social.name}${
+                social.url.startsWith("http") ? " (opens in a new tab)" : ""
+              }`}
+            >
+              <Icon
+                size={22}
+                style={{
+                  color: social.color,
+                }}
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+              />
+            </a>
+          );
+        })}
       </div>
     </motion.aside>
   );

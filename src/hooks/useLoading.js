@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useLoading(delay = 1800) {
+export default function useLoading(delay = 300) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

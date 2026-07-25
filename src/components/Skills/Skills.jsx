@@ -13,31 +13,45 @@ function SkillGroup({ title, data }) {
       <h3>{title}</h3>
 
       <div className="badge-container">
-        {data.map((skill, index) => (
-          <motion.span
-            key={skill}
-            className="skill-badge"
-            initial={{
-              opacity: 0,
-              scale: 0.8,
-              y: 15,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: index * 0.04,
-              duration: 0.35,
-            }}
-          >
-            {skill}
-          </motion.span>
-        ))}
+        {data.map((skill, index) => {
+          const Icon = skill.icon;
+
+          return (
+            <motion.span
+              key={skill.name}
+              className="skill-badge"
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+                y: 15,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                delay: index * 0.04,
+                duration: 0.35,
+              }}
+            >
+              {Icon && (
+                <Icon
+                  size={20}
+                  style={{
+                    color: skill.color,
+                  }}
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                />
+              )}
+
+              <span>{skill.name}</span>
+            </motion.span>
+          );
+        })}
       </div>
     </motion.div>
   );

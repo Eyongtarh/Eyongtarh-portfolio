@@ -1,7 +1,20 @@
+import {
+  FaLaptopCode,
+  FaDatabase,
+  FaChartLine,
+  FaCar,
+  FaShip,
+  FaBuilding,
+  FaTruck,
+  FaSchool,
+  FaPrint,
+  FaCog,
+} from "react-icons/fa";
 const experience = [
   {
     id: 1,
-    icon: "fa-solid fa-laptop-code",
+    icon: FaLaptopCode,
+    color: "#3B82F6",
     role: "Full Stack Software Developer",
     company: "Independent / Remote Contracts",
     location: "Sweden",
@@ -26,7 +39,8 @@ const experience = [
   },
   {
     id: 2,
-    icon: "fa-solid fa-database",
+    icon: FaDatabase,
+    color: "#10B981",
     role: "Information Systems Associate",
     company: "Budbee",
     location: "Sweden",
@@ -41,7 +55,8 @@ const experience = [
   },
   {
     id: 3,
-    icon: "fa-solid fa-chart-line",
+    icon: FaChartLine,
+    color: "#F59E0B",
     role: "Business Consultant",
     company: "MECANUS",
     location: "Buea, Cameroon",
@@ -58,7 +73,8 @@ const experience = [
 
   {
     id: 4,
-    icon: "fa-solid fa-car",
+    icon: FaCar,
+    color: "#8B5CF6",
     role: "Part-time Driving Instructor",
     company: "Transportstyrelsen",
     location: "Gothenburg, Sweden",
@@ -75,7 +91,8 @@ const experience = [
 
   {
     id: 5,
-    icon: "fa-solid fa-ship",
+    icon: FaShip,
+    color: "#06B6D4",
     role: "Part-time Export Management",
     company: "Nordtrafik AB Collaboration",
     location: "Gothenburg, Sweden",
@@ -92,7 +109,8 @@ const experience = [
 
   {
     id: 6,
-    icon: "fa-solid fa-building",
+    icon: FaBuilding,
+    color: "#8B5CF6",
     role: "Managing Partner & Accountant",
     company: "Sävenäs Hus & Hemtjänster HB",
     location: "Gothenburg, Sweden",
@@ -122,7 +140,8 @@ const experience = [
 
   {
     id: 7,
-    icon: "fa-solid fa-truck",
+    icon: FaTruck,
+    color: "#EF4444",
     role: "Courier",
     company: "VTD",
     location: "Sweden",
@@ -137,7 +156,8 @@ const experience = [
 
   {
     id: 8,
-    icon: "fa-solid fa-school",
+    icon: FaSchool,
+    color: "#10B981",
     role: "High School Economics Examiner",
     company: "Cameroon General Certificate Of Education Board",
     location: "Cameroon",
@@ -154,7 +174,8 @@ const experience = [
 
   {
     id: 9,
-    icon: "fa-solid fa-school",
+    icon: FaSchool,
+    color: "#10B981",
     role: "High School Economics Teacher",
     company: "Saint Joseph College, Sasse",
     location: "Cameroon",
@@ -170,7 +191,8 @@ const experience = [
 
   {
     id: 10,
-    icon: "fa-solid fa-school",
+    icon: FaSchool,
+    color: "#10B981",
     role: "Formator",
     company: "Bishop Rogan College, Small Soppo",
     location: "Cameroon",
@@ -186,7 +208,8 @@ const experience = [
 
   {
     id: 11,
-    icon: "fa-solid fa-print",
+    icon: FaPrint,
+    color: "#F59E0B",
     role: "Founder & Proprietor",
     company: "E-PRINTS SARL",
     location: "Buea, Cameroon",
@@ -209,7 +232,8 @@ const experience = [
 
   {
     id: 12,
-    icon: "fa-solid fa-gear",
+    icon: FaCog,
+    color: "#6B7280",
     role: "Operations Team",
     company: "Unity Co-operative Society (UNICS) Plc",
     location: "Cameroon",

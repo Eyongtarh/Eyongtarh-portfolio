@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
 const navItems = [
@@ -11,20 +12,26 @@ const navItems = [
   { id: "interests", label: "Interests" },
   { id: "contact", label: "Contact" },
 ];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     handleScroll();
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -38,10 +45,14 @@ export default function Navbar() {
         rootMargin: "-20% 0px -40% 0px",
       },
     );
+
     sections.forEach((section) => observer.observe(section));
+
     return () => observer.disconnect();
   }, []);
+
   const closeMenu = () => setMenuOpen(false);
+
   return (
     <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="nav-container">
@@ -60,6 +71,7 @@ export default function Navbar() {
           />
           <span>Eyongtarh Besong</span>
         </a>
+
         <nav
           className={`nav-links ${menuOpen ? "open" : ""}`}
           id="primary-navigation"
@@ -76,6 +88,7 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
+
         <button
           className="hamburger"
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -86,10 +99,21 @@ export default function Navbar() {
           aria-controls="primary-navigation"
           type="button"
         >
-          <i
-            className={menuOpen ? "fas fa-times" : "fas fa-bars"}
-            aria-hidden="true"
-          ></i>
+          {menuOpen ? (
+            <FaTimes
+              size={22}
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            />
+          ) : (
+            <FaBars
+              size={22}
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+            />
+          )}
         </button>
       </div>
     </header>

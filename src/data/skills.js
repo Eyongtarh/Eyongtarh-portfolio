@@ -11,6 +11,29 @@ import {
   FaGithub,
   FaFigma,
   FaAws,
+  FaShoppingCart,
+  FaStore,
+  FaCashRegister,
+  FaClipboardList,
+  FaBoxes,
+  FaUserShield,
+  FaUserCircle,
+  FaHeart,
+  FaSearch,
+  FaFilter,
+  FaMobileAlt,
+  FaTachometerAlt,
+  FaImages,
+  FaTags,
+  FaEnvelope,
+  FaChartLine,
+  FaCalculator,
+  FaProjectDiagram,
+  FaChartBar,
+  FaLightbulb,
+  FaBriefcase,
+  FaDatabase,
+  FaSquareRootAlt,
 } from "react-icons/fa";
 
 import {
@@ -28,7 +51,7 @@ import {
 } from "react-icons/si";
 
 const skills = {
-  frontend: [
+  Frontend: [
     { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
     { name: "CSS3", icon: FaCss3Alt, color: "#1572B6" },
     { name: "JavaScript", icon: FaJs, color: "#F7DF1E" },
@@ -38,7 +61,7 @@ const skills = {
     { name: "jQuery", icon: SiJquery, color: "#0769AD" },
   ],
 
-  backend: [
+  Backend: [
     { name: "Python", icon: FaPython, color: "#3776AB" },
     { name: "Django", icon: SiDjango, color: "#092E20" },
     { name: "Flask", icon: SiFlask, color: "#FFFFFF" },
@@ -48,7 +71,7 @@ const skills = {
     { name: "Stripe", icon: SiStripe, color: "#635BFF" },
   ],
 
-  tools: [
+  Tools: [
     { name: "Git", icon: FaGitAlt, color: "#F05032" },
     { name: "GitHub", icon: FaGithub, color: "#FFFFFF" },
     { name: "Docker", icon: FaDocker, color: "#2496ED" },
@@ -58,6 +81,36 @@ const skills = {
     { name: "Vite", icon: SiVite, color: "#646CFF" },
     { name: "AWS S3", icon: FaAws, color: "#FF9900" },
     { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
+  ],
+
+  "E-Commerce": [
+    { name: "Shopping Cart", icon: FaShoppingCart, color: "#FF6B35" },
+    { name: "Product Catalog", icon: FaStore, color: "#1976D2" },
+    { name: "Checkout System", icon: FaCashRegister, color: "#2E7D32" },
+    { name: "Stripe Payments", icon: SiStripe, color: "#635BFF" },
+    { name: "Order Management", icon: FaClipboardList, color: "#8E24AA" },
+    { name: "Inventory Management", icon: FaBoxes, color: "#F57C00" },
+    { name: "User Authentication", icon: FaUserShield, color: "#1565C0" },
+    { name: "Customer Accounts", icon: FaUserCircle, color: "#0288D1" },
+    { name: "Wishlist", icon: FaHeart, color: "#E91E63" },
+    { name: "Product Search", icon: FaSearch, color: "#43A047" },
+    { name: "Filtering & Sorting", icon: FaFilter, color: "#5E35B1" },
+    { name: "Responsive Storefront", icon: FaMobileAlt, color: "#00ACC1" },
+    { name: "Admin Dashboard", icon: FaTachometerAlt, color: "#455A64" },
+    { name: "Image Uploads", icon: FaImages, color: "#FB8C00" },
+    { name: "Discount Coupons", icon: FaTags, color: "#D81B60" },
+    { name: "Email Notifications", icon: FaEnvelope, color: "#00897B" },
+  ],
+
+  "Economics & Business": [
+    { name: "Applied Economics", icon: FaChartLine, color: "#2E7D32" },
+    { name: "Accounting", icon: FaCalculator, color: "#00897B" },
+    { name: "Project Management", icon: FaProjectDiagram, color: "#6A1B9A" },
+    { name: "Business Analytics", icon: FaChartBar, color: "#3949AB" },
+    { name: "Entrepreneurship", icon: FaLightbulb, color: "#F4B400" },
+    { name: "Consulting", icon: FaBriefcase, color: "#1565C0" },
+    { name: "MATLAB", icon: FaSquareRootAlt, color: "#FF6F00" },
+    { name: "Stata", icon: FaDatabase, color: "#455A64" },
   ],
 };
 

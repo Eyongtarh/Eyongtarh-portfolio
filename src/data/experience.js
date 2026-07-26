@@ -93,7 +93,7 @@ const experience = [
     id: 5,
     icon: FaShip,
     color: "#06B6D4",
-    role: "Part-time Export Management",
+    role: "Part-time Export Manager",
     company: "Nordtrafik AB Collaboration",
     location: "Gothenburg, Sweden",
     period: "May 2013 - November 2019",

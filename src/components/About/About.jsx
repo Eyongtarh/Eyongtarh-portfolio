@@ -18,7 +18,7 @@ const cards = [
     icon: FaUsers,
     color: "#10B981",
     title: "Business Experience",
-    text: "My background in consulting, entrepreneurship, logistics, and business management enables me to bridge the gap between technology and business strategy, delivering software that creates real value for organizations.",
+    text: "My background in consulting, entrepreneurship, logistics, and business management enables me to bridge the gap between technology and business strategy, delivering software that creates real value for organisations.",
   },
 ];
 

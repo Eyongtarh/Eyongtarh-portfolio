@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
-
 const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -12,47 +11,37 @@ const navItems = [
   { id: "interests", label: "Interests" },
   { id: "contact", label: "Contact" },
 ];
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     handleScroll();
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.4,
-        rootMargin: "-20% 0px -40% 0px",
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
+    const sections = [...document.querySelectorAll("section[id]")];
+    const updateActiveSection = () => {
+      let current = sections[0].id;
+      let minDistance = Infinity;
+      sections.forEach((section) => {
+        const distance = Math.abs(section.getBoundingClientRect().top - 120);
+        if (distance < minDistance) {
+          minDistance = distance;
+          current = section.id;
+        }
+      });
+      setActiveSection(current);
+    };
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection);
+    return () => window.removeEventListener("scroll", updateActiveSection);
   }, []);
-
   const closeMenu = () => setMenuOpen(false);
-
   return (
     <header className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="nav-container">
@@ -71,7 +60,6 @@ export default function Navbar() {
           />
           <span>Eyongtarh Besong</span>
         </a>
-
         <nav
           className={`nav-links ${menuOpen ? "open" : ""}`}
           id="primary-navigation"
@@ -88,7 +76,6 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
-
         <button
           className="hamburger"
           onClick={() => setMenuOpen((prev) => !prev)}

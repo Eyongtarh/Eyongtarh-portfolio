@@ -34,6 +34,8 @@ import {
   FaBriefcase,
   FaDatabase,
   FaSquareRootAlt,
+  FaChrome,
+  FaCode,
 } from "react-icons/fa";
 
 import {
@@ -48,6 +50,8 @@ import {
   SiVite,
   SiFramer,
   SiStripe,
+  SiNpm,
+  SiPypi,
 } from "react-icons/si";
 
 const skills = {
@@ -79,6 +83,10 @@ const skills = {
     { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
     { name: "Render", icon: SiRender, color: "#46E3B7" },
     { name: "Vite", icon: SiVite, color: "#646CFF" },
+    { name: "VS Code", icon: FaCode, color: "#007ACC" },
+    { name: "npm", icon: SiNpm, color: "#CB3837" },
+    { name: "pip", icon: SiPypi, color: "#3775A9" },
+    { name: "Chrome DevTools", icon: FaChrome, color: "#4285F4" },
     { name: "AWS S3", icon: FaAws, color: "#FF9900" },
     { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
   ],

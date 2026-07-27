@@ -6,10 +6,8 @@ import {
   FaDownload,
   FaArrowUp,
 } from "react-icons/fa";
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -19,7 +17,6 @@ export default function Footer() {
     { name: "Interests", href: "#interests" },
     { name: "Contact", href: "#contact" },
   ];
-
   const socialLinks = [
     {
       icon: FaGithub,
@@ -40,23 +37,19 @@ export default function Footer() {
       label: "Email",
     },
   ];
-
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
             <h2>Eyongtarh Besong</h2>
-
             <p>
               Full Stack Software Developer passionate about building modern,
               scalable, and user-friendly web applications.
             </p>
           </div>
-
           <div className="footer-links">
             <h3>Quick Links</h3>
-
             <ul>
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -65,14 +58,11 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
           <div className="footer-social">
             <h3>Connect</h3>
-
             <div className="social-icons">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
-
                 return (
                   <a
                     key={social.label}
@@ -102,7 +92,6 @@ export default function Footer() {
                 );
               })}
             </div>
-
             <a
               href="/cv.pdf"
               target="_blank"
@@ -118,10 +107,11 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
         <div className="footer-bottom">
-          <p>© {currentYear} Eyongtarh Besong. All Rights Reserved.</p>
-
+          <p>
+            © {currentYear} Eyongtarh Besong. Licensed under the MIT License. |
+            Göteborg, Sweden.{" "}
+          </p>
           <a href="#home" className="back-to-top" aria-label="Back to top">
             <FaArrowUp size={18} aria-hidden="true" />
           </a>

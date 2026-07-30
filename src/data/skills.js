@@ -1,3 +1,4 @@
+// Defines the application's technical skills and technologies grouped by category.
 import {
   FaHtml5,
   FaCss3Alt,
@@ -53,7 +54,6 @@ import {
   SiNpm,
   SiPypi,
 } from "react-icons/si";
-
 const skills = {
   Frontend: [
     { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
@@ -64,7 +64,6 @@ const skills = {
     { name: "Bootstrap", icon: FaBootstrap, color: "#7952B3" },
     { name: "jQuery", icon: SiJquery, color: "#0769AD" },
   ],
-
   Backend: [
     { name: "Python", icon: FaPython, color: "#3776AB" },
     { name: "Django", icon: SiDjango, color: "#092E20" },
@@ -74,7 +73,6 @@ const skills = {
     { name: "Jest", icon: SiJest, color: "#C21325" },
     { name: "Stripe", icon: SiStripe, color: "#635BFF" },
   ],
-
   Tools: [
     { name: "Git", icon: FaGitAlt, color: "#F05032" },
     { name: "GitHub", icon: FaGithub, color: "#FFFFFF" },
@@ -90,7 +88,6 @@ const skills = {
     { name: "AWS S3", icon: FaAws, color: "#FF9900" },
     { name: "Framer Motion", icon: SiFramer, color: "#0055FF" },
   ],
-
   "E-Commerce": [
     { name: "Shopping Cart", icon: FaShoppingCart, color: "#FF6B35" },
     { name: "Product Catalog", icon: FaStore, color: "#1976D2" },
@@ -109,7 +106,6 @@ const skills = {
     { name: "Discount Coupons", icon: FaTags, color: "#D81B60" },
     { name: "Email Notifications", icon: FaEnvelope, color: "#00897B" },
   ],
-
   "Economics & Business": [
     { name: "Applied Economics", icon: FaChartLine, color: "#2E7D32" },
     { name: "Accounting", icon: FaCalculator, color: "#00897B" },
@@ -121,5 +117,4 @@ const skills = {
     { name: "Stata", icon: FaDatabase, color: "#455A64" },
   ],
 };
-
 export default skills;

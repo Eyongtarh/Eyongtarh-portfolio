@@ -1,168 +1,95 @@
-/* =====================================================
-   GLOBALS
-===================================================== */
-
+/* GLOBALS */
 /* HTML */
-
 html {
   scroll-behavior: smooth;
 }
-
 /* Body */
-
 body {
   position: relative;
-
   min-height: 100vh;
-
   overflow-x: hidden;
-
   background: var(--background);
-
   color: var(--text);
-
   text-rendering: optimizeLegibility;
-
   -webkit-font-smoothing: antialiased;
-
   -moz-osx-font-smoothing: grayscale;
 }
-
 /* Prevent horizontal overflow */
-
 #root {
   position: relative;
-
   overflow-x: hidden;
 }
-
-/* =====================================================
-   Sections
-===================================================== */
-
+/* Sections */
 section {
   position: relative;
-
   padding: 120px 8%;
 }
-
 section[id] {
   scroll-margin-top: 90px;
 }
-
-/* =====================================================
-   Layout
-===================================================== */
-
+/* Layout */
 .container {
   width: 100%;
-
   max-width: 1300px;
-
   margin: 0 auto;
 }
-
-/* =====================================================
-   Buttons
-===================================================== */
-
+/* Buttons */
 .btn {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 10px;
-
   padding: 15px 30px;
-
   border: none;
-
   border-radius: 999px;
-
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-
   color: #fff;
-
   text-decoration: none;
-
   font-weight: 600;
-
   cursor: pointer;
-
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease,
     opacity 0.35s ease;
 }
-
 .btn:hover {
   transform: translateY(-4px) scale(1.02);
-
   box-shadow: 0 15px 40px rgba(37, 99, 235, 0.35);
 }
-
 .btn:active {
   transform: scale(0.97);
 }
-
 .btn-outline {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   gap: 10px;
-
   padding: 15px 30px;
-
   border: 2px solid var(--primary);
-
   border-radius: 999px;
-
   background: rgba(255, 255, 255, 0.02);
-
   backdrop-filter: blur(8px);
-
   color: var(--primary);
-
   text-decoration: none;
-
   font-weight: 600;
-
   transition:
     transform 0.35s ease,
     background 0.35s ease,
     color 0.35s ease,
     box-shadow 0.35s ease;
 }
-
 .btn-outline:hover {
   background: var(--primary);
-
   color: white;
-
   transform: translateY(-4px);
-
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
 }
-
-/* =====================================================
-   Links
-===================================================== */
-
+/* Links */
 a {
   color: inherit;
-
   text-decoration: none;
 }
-
-/* =====================================================
-   Images
-===================================================== */
-
+/*  Images */
 img {
   display: block;
 

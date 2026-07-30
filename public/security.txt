@@ -1,6 +1,6 @@
 Contact: mailto:eyongtarhb@gmail.com
 Expires: 2027-07-21T00:00:00Z
 Preferred-Languages: en
-Canonical: https://eyongtarh-portfolio.vercel.app/.well-known/security.txt
-Policy: https://eyongtarh-portfolio.vercel.app/security
-Hiring: https://eyongtarh-portfolio.vercel.app
+Canonical: https://eyongtarh.com/.well-known/security.txt
+Policy: https://eyongtarh.com/security
+Hiring: https://eyongtarh.com

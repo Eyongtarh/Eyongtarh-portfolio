@@ -1,3 +1,4 @@
+// Displays the custom 403 Access Denied error page using the shared ErrorLayout component.
 import ErrorLayout from "../components/ErrorLayout";
 import background from "../assets/errors/access-denied.png";
 export default function AccessDenied() {

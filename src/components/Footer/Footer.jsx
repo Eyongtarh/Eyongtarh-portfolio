@@ -109,9 +109,9 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <p>
-            © {currentYear} Eyongtarh Besong. Licensed under the MIT License. |
-            Göteborg, Sweden.{" "}
+            © {currentYear} Eyongtarh Besong. Licensed under the MIT License.
           </p>
+          <p>Göteborg, Sweden.</p>
           <a href="#home" className="back-to-top" aria-label="Back to top">
             <FaArrowUp size={18} aria-hidden="true" />
           </a>

@@ -1,15 +1,15 @@
+// Defines the featured projects and metadata displayed in the portfolio.
 const projects = [
   {
     github: "Eyongtarh-portfolio",
     featured: true,
     order: 1,
     image: "/images/projects/portfolio.png",
-    demo: "https://eyongtarh-portfolio.vercel.app",
+    demo: "https://eyongtarh.com",
     category: "Frontend",
     highlight: "Personal Portfolio",
     technologies: ["React", "JavaScript", "CSS", "Vite", "Framer Motion"],
   },
-
   {
     github: "Ekpaw-Spicies",
     featured: true,
@@ -25,7 +25,6 @@ const projects = [
       "Python",
     ],
   },
-
   {
     github: "Riders-Club-Project",
     featured: true,
@@ -44,7 +43,6 @@ const projects = [
       "Agile Development",
     ],
   },
-
   {
     github: "Tarh-Tastyhub",
     featured: true,

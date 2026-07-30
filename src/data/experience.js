@@ -1,3 +1,4 @@
+// Defines the professional work experience displayed in the portfolio timeline.
 import {
   FaLaptopCode,
   FaDatabase,
@@ -93,7 +94,7 @@ const experience = [
     id: 5,
     icon: FaShip,
     color: "#06B6D4",
-    role: "Part-time Export Manager",
+    role: "Part-time Export Management",
     company: "Nordtrafik AB Collaboration",
     location: "Gothenburg, Sweden",
     period: "May 2013 - November 2019",
@@ -102,7 +103,6 @@ const experience = [
       "Managed export operations.",
       "Coordinated logistics activities.",
       "Handled customer and supplier relationships.",
-      "Maintained export documentation.",
     ],
     technologies: ["Logistics", "Operations", "Supply Chain"],
   },

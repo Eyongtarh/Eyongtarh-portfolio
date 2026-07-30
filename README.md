@@ -9,11 +9,11 @@ A modern, responsive, and interactive portfolio website showcasing my skills, ex
 ![GitHub last commit](https://img.shields.io/github/last-commit/Eyongtarh/Eyongtarh-portfolio)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Eyongtarh/Eyongtarh-portfolio)
 ![GitHub top language](https://img.shields.io/github/languages/top/Eyongtarh/Eyongtarh-portfolio)
-[![Vercel](https://img.shields.io/badge/Live%20Demo-Vercel-000000?logo=vercel&logoColor=white)](https://eyongtarh-portfolio.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-eyongtarh.com-000000?logo=vercel&logoColor=white)](https://eyongtarh.com)
 
 ---
 
-**Deployed website: [Link to website](https://eyongtarh-portfolio.vercel.app/)**
+**Live Website: [Link to website](https://eyongtarh.com/)**
 
 ![Main image](public/images/projects/hero.png)
 
@@ -106,26 +106,26 @@ Although this portfolio is frontend-based, my primary backend technologies inclu
 Eyongtarh-portfolio/
 ├── public/
 │   ├── captions/
-│   │   └── empty.vtt                 # Caption track for hero background video
+│   │   └── empty.vtt                  # Caption track for hero background video
 │   │
 │   ├── errors/
-│   │   └── 404.png                  # Custom 404 illustration
+│   │   └── 404.png                    # Custom 404 illustration
 │   │
 │   ├── images/
-│   │   └── projects/                # Project screenshots
+│   │   └── projects/                  # Project screenshots
 │   │       ├── about.png
 │   │       ├── about2.png
 │   │       ├── axe_report.png
 │   │       ├── contact.png
 │   │       └── ...
 │   │
-│   ├── 404.html                     # SPA fallback page
-│   ├── cv.pdf                       # Downloadable CV
+│   ├── 404.html                       # SPA fallback page
+│   ├── cv.pdf                         # Downloadable CV
 │   ├── favicon.ico
 │   ├── humans.txt
 │   ├── logo.png
-│   ├── og-image.png                 # Social sharing image
-│   ├── profile.webp                 # Optimised profile image
+│   ├── og-image.png                   # Open Graph image
+│   ├── profile.webp                   # Optimised profile image
 │   ├── robots.txt
 │   ├── security.txt
 │   ├── site.webmanifest
@@ -133,11 +133,11 @@ Eyongtarh-portfolio/
 │
 ├── src/
 │   ├── assets/
-│   │   ├── errors/                  # Error page assets
-│   │   ├── icons/                   # Custom SVG icons
-│   │   ├── images/                  # Local images
-│   │   ├── styles/                  # Shared styles
-│   │   └── videos/                  # Hero background videos
+│   │   ├── errors/                    # Error page illustrations
+│   │   ├── icons/                     # Custom SVG icons
+│   │   ├── images/                    # Local images
+│   │   ├── styles/                    # Shared styles
+│   │   └── videos/                    # Hero background videos
 │   │
 │   ├── components/
 │   │   ├── About/
@@ -158,10 +158,10 @@ Eyongtarh-portfolio/
 │   │   └── ErrorIllustration.jsx
 │   │
 │   ├── data/
-│   │   ├── experience.js
-│   │   ├── github-repos.json
-│   │   ├── projects.js
-│   │   └── skills.js
+│   │   ├── experience.js              # Professional experience data
+│   │   ├── github-repos.json          # GitHub repository data
+│   │   ├── projects.js                # Custom project metadata
+│   │   └── skills.js                  # Skills and technologies
 │   │
 │   ├── hooks/
 │   │   ├── useGithubRepos.js
@@ -175,21 +175,24 @@ Eyongtarh-portfolio/
 │   │   └── ServerError.jsx
 │   │
 │   ├── utils/
-│   │   └── emailjs.js
+│   │   └── emailjs.js                 # EmailJS configuration
 │   │
 │   ├── App.css
 │   ├── App.jsx
 │   └── main.jsx
 │
-├── .env
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── package-lock.json
-├── postcss.config.js
-├── vite.config.js
-└── README.md
+├── .editorconfig                      # Editor configuration
+├── .env                               # Environment variables
+├── .gitignore                         # Git ignored files
+├── .nvmrc                             # Recommended Node.js version
+├── eslint.config.js                   # ESLint configuration
+├── index.html                         # HTML entry point
+├── LICENSE                            # MIT License
+├── package.json                       # Dependencies and npm scripts
+├── package-lock.json                  # Locked dependency versions
+├── postcss.config.js                  # PostCSS configuration
+├── README.md
+└── vite.config.js                     # Vite configuration
 ```
 
 ## Architecture

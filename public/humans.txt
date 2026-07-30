@@ -2,7 +2,7 @@ Eyongtarh Besong
 Full Stack Software Developer
 
 Website:
-https://eyongtarh-portfolio.vercel.app/
+https://eyongtarh.com/
 
 GitHub:
 https://github.com/Eyongtarh

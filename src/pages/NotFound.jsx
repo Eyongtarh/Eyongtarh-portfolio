@@ -1,6 +1,7 @@
 // Displays the custom 404 Not Found page when a requested route does not exist.
 import ErrorLayout from "../components/ErrorLayout";
 import background from "../assets/errors/404.png";
+
 export default function NotFound() {
   return (
     <ErrorLayout

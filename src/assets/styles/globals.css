@@ -92,67 +92,41 @@ a {
 /*  Images */
 img {
   display: block;
-
   max-width: 100%;
-
   height: auto;
 }
-
-/* =====================================================
-   Selection
-===================================================== */
-
+/* Selection */
 ::selection {
   background: var(--primary);
-
   color: white;
 }
-
-/* =====================================================
-   Scrollbar
-===================================================== */
-
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: #0f172a;
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--primary);
-
   border-radius: 20px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
 }
-
-/* =====================================================
-   Focus
-===================================================== */
-
+/* Focus */
 :focus-visible {
   outline: 2px solid var(--secondary);
-
   outline-offset: 4px;
 }
-
-/* =====================================================
-   Responsive
-===================================================== */
-
+/*  Responsive */
 @media (max-width: 768px) {
   section {
     padding: 90px 5%;
   }
-
   .btn,
   .btn-outline {
     width: 100%;
-
     justify-content: center;
   }
 }

@@ -1,3 +1,4 @@
+/* navbar */
 .navbar {
   position: fixed;
   inset: 0 0 auto 0;
@@ -10,7 +11,6 @@
     box-shadow 0.35s ease,
     padding 0.35s ease;
 }
-
 .navbar-scrolled {
   background: rgba(15, 23, 42, 0.82);
   backdrop-filter: blur(18px);
@@ -18,13 +18,11 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   padding: 14px 8%;
 }
-
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .logo {
   display: flex;
   align-items: center;
@@ -34,19 +32,16 @@
   font-weight: 700;
   font-size: 1rem;
 }
-
 .logo-image {
   width: 48px;
   height: auto;
   display: block;
 }
-
 .nav-links {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-
 .nav-links a {
   position: relative;
   color: var(--text);
@@ -54,11 +49,9 @@
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .nav-links a:hover {
   color: var(--secondary);
 }
-
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -70,20 +63,14 @@
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   transition: width 0.35s ease;
 }
-
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
 }
-
 .nav-links a.active {
   color: var(--secondary);
 }
-
-/* ===========================
-   Hamburger
-=========================== */
-
+/* Hamburger */
 .hamburger {
   display: none;
   align-items: center;
@@ -100,28 +87,21 @@
     color 0.3s ease,
     background 0.3s ease;
 }
-
 .hamburger:hover {
   color: var(--secondary);
   background: rgba(255, 255, 255, 0.05);
 }
-
 .hamburger svg {
   display: block;
   width: 22px;
   height: 22px;
   flex-shrink: 0;
 }
-
-/* ===========================
-   Tablet & Mobile
-=========================== */
-
+/* Tablet & Mobile */
 @media (max-width: 1030px) {
   .hamburger {
     display: flex;
   }
-
   .nav-links {
     position: absolute;
     top: calc(100% + 14px);
@@ -135,18 +115,15 @@
     border-radius: var(--radius);
     background: rgba(30, 41, 59, 0.96);
     backdrop-filter: blur(18px);
-
     transform: translateY(-15px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transition:
       opacity 0.3s ease,
       transform 0.3s ease,
       visibility 0.3s ease;
   }
-
   .nav-links.open {
     opacity: 1;
     visibility: visible;
@@ -154,24 +131,17 @@
     transform: translateY(0);
   }
 }
-
-/* ===========================
-   Mobile
-=========================== */
-
+/* Mobile */
 @media (max-width: 600px) {
   .navbar {
     padding: 18px 6%;
   }
-
   .navbar-scrolled {
     padding: 12px 6%;
   }
-
   .logo span {
     display: none;
   }
-
   .nav-links {
     right: 6%;
     width: calc(100% - 12%);

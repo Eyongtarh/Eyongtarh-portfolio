@@ -1,3 +1,4 @@
+// Renders the interests section by showcasing personal interests and activities through animated cards.
 import { motion } from "framer-motion";
 import {
   FaLaptopCode,
@@ -8,7 +9,6 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import "./Interests.css";
-
 const interests = [
   {
     icon: FaLaptopCode,
@@ -66,20 +66,16 @@ export default function Interests() {
           viewport={{ once: true }}
         >
           <span className="section-subtitle">Beyond Development</span>
-
           <h2>Interests</h2>
-
           <p>
             My curiosity extends beyond software engineering. These interests
             inspire creativity, continuous learning, and a balanced approach to
             technology and life.
           </p>
         </motion.div>
-
         <div className="interests-grid">
           {interests.map((interest, index) => {
             const Icon = interest.icon;
-
             return (
               <motion.article
                 key={interest.title}
@@ -101,9 +97,7 @@ export default function Interests() {
                     focusable="false"
                   />
                 </div>
-
                 <h3>{interest.title}</h3>
-
                 <p>{interest.description}</p>
               </motion.article>
             );

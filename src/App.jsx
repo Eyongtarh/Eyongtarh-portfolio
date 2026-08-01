@@ -15,8 +15,10 @@ import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackgrou
 import CursorGlow from "./components/CursorGlow/CursorGlow";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import useLoading from "./hooks/useLoading";
+
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
+
 function App() {
   const loading = useLoading();
   return (

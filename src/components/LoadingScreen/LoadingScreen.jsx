@@ -1,3 +1,4 @@
+// Renders the initial loading screen displayed while the application is starting.
 import "./LoadingScreen.css";
 
 function LoadingScreen({ isLoading }) {

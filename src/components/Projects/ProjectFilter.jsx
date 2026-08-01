@@ -1,3 +1,4 @@
+// Renders project category filters and updates the displayed projects based on the selected category.
 export default function ProjectFilter({ current, setCurrent, categories }) {
   return (
     <div className="project-filter">
@@ -9,7 +10,6 @@ export default function ProjectFilter({ current, setCurrent, categories }) {
       >
         All
       </button>
-
       <div role="group" aria-label="Project category filters">
         {categories.map((category) => (
           <button

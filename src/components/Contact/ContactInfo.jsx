@@ -1,3 +1,4 @@
+// Renders contact information and social links with animated icons and interactive links.
 import { motion } from "framer-motion";
 import {
   FaEnvelope,
@@ -6,7 +7,6 @@ import {
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
-
 const contactItems = [
   {
     icon: FaEnvelope,
@@ -30,7 +30,6 @@ const contactItems = [
     link: "https://maps.google.com/?q=Gothenburg,Sweden",
   },
 ];
-
 const socialLinks = [
   {
     icon: FaGithub,
@@ -51,7 +50,6 @@ const socialLinks = [
     url: "mailto:eyongtarhb@gmail.com",
   },
 ];
-
 export default function ContactInfo() {
   return (
     <motion.aside
@@ -62,17 +60,14 @@ export default function ContactInfo() {
       viewport={{ once: true }}
     >
       <h3>Contact Information</h3>
-
       <p>
         I'm currently open to freelance opportunities, full-time positions, and
         exciting collaborations. Feel free to reach out through any of the
         channels below.
       </p>
-
       <div className="contact-list">
         {contactItems.map((item) => {
           const Icon = item.icon;
-
           return (
             <div className="contact-item" key={item.title}>
               <div className="contact-icon">
@@ -86,10 +81,8 @@ export default function ContactInfo() {
                   focusable="false"
                 />
               </div>
-
               <div>
                 <h4>{item.title}</h4>
-
                 {item.link ? (
                   <a
                     href={item.link}
@@ -110,11 +103,9 @@ export default function ContactInfo() {
           );
         })}
       </div>
-
       <div className="social-links">
         {socialLinks.map((social) => {
           const Icon = social.icon;
-
           return (
             <a
               key={social.name}

@@ -1,6 +1,8 @@
+// Reusable layout component for displaying custom error pages with configurable content and actions.
 import { motion } from "framer-motion";
 import "./ErrorLayout.css";
 import ErrorIllustration from "./ErrorIllustration";
+
 export default function ErrorLayout({
   code,
   title,

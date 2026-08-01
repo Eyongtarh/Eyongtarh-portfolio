@@ -1,6 +1,7 @@
 // Displays the custom maintenance page while the portfolio is temporarily unavailable.
 import ErrorLayout from "../components/ErrorLayout";
 import background from "../assets/errors/maintenance.png";
+
 export default function Maintenance() {
   return (
     <ErrorLayout

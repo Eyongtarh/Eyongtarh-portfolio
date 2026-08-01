@@ -38,7 +38,6 @@ import {
   FaChrome,
   FaCode,
 } from "react-icons/fa";
-
 import {
   SiTypescript,
   SiJquery,
@@ -54,6 +53,7 @@ import {
   SiNpm,
   SiPypi,
 } from "react-icons/si";
+
 const skills = {
   Frontend: [
     { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
@@ -117,4 +117,5 @@ const skills = {
     { name: "Stata", icon: FaDatabase, color: "#455A64" },
   ],
 };
+
 export default skills;

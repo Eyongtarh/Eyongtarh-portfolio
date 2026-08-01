@@ -1,58 +1,37 @@
+/* Skill  */
 .skills {
   padding: 120px 8%;
 }
-
 .skills h2 {
   text-align: center;
   margin-bottom: 70px;
 }
-
-/* ==========================
-   Skill Group
-========================== */
-
+/* Skill Group */
 .skill-group {
   position: relative;
-
   margin-bottom: 45px;
-
   padding: 35px;
-
   background: var(--surface);
-
   border: 1px solid var(--border);
-
   border-radius: var(--radius);
-
   overflow: hidden;
-
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
     box-shadow 0.35s ease;
 }
-
 .skill-group:hover {
   transform: translateY(-8px);
-
   border-color: var(--primary);
-
   box-shadow: var(--shadow);
 }
-
 /* Animated border */
-
 .skill-group::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   padding: 1px;
-
   border-radius: inherit;
-
   background: linear-gradient(
     135deg,
     transparent,
@@ -60,119 +39,78 @@
     transparent,
     var(--secondary)
   );
-
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask-composite: xor;
-
   mask-composite: exclude;
-
   pointer-events: none;
 }
-
 .skill-group h3 {
   margin-bottom: 30px;
-
   color: var(--secondary);
-
   font-size: 1.4rem;
 }
-
-/* ==========================
-   Badges
-========================== */
-
+/* Badges */
 .badge-container {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 15px;
 }
-
 .skill-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   position: relative;
   overflow: hidden;
-
   padding: 14px 22px;
-
   border-radius: 999px;
-
   background: rgba(255, 255, 255, 0.05);
-
   border: 1px solid rgba(255, 255, 255, 0.08);
-
   color: var(--text);
-
   cursor: default;
-
   transition:
     transform 0.3s ease,
     background 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 .skill-badge::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(
     120deg,
     transparent,
     rgba(255, 255, 255, 0.18),
     transparent
   );
-
   transform: translateX(-100%);
-
   transition: transform 0.6s ease;
 }
-
 .skill-badge:hover::before {
   transform: translateX(100%);
 }
-
 .skill-badge:hover {
   transform: translateY(-6px) scale(1.02);
-
   background: rgba(29, 78, 216, 0.15);
-
   border-color: var(--primary);
-
   box-shadow: 0 12px 30px rgba(29, 78, 216, 0.25);
 }
-
-/* ==========================
-   Responsive
-========================== */
-
+/* Responsive */
 @media (max-width: 768px) {
   .skills {
     padding: 100px 6%;
   }
-
   .skill-group {
     padding: 25px;
   }
-
   .badge-container {
     gap: 12px;
   }
-
   .skill-badge {
     padding: 12px 18px;
   }

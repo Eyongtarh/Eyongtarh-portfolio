@@ -1,3 +1,4 @@
+// Renders the animated background effects used throughout the application.
 import "./AnimatedBackground.css";
 
 function AnimatedBackground() {

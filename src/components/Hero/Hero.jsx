@@ -1,3 +1,4 @@
+// Renders the hero section with animated introductions, social links, call-to-action buttons, and a background video.
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import {
   FaGithub,
@@ -9,6 +10,7 @@ import {
 } from "react-icons/fa";
 import backgroundVideo from "../../assets/videos/blue.mp4";
 import "./Hero.css";
+
 const socialLinks = [
   {
     icon: FaGithub,
@@ -29,6 +31,7 @@ const socialLinks = [
     label: "Email",
   },
 ];
+
 export default function Hero() {
   return (
     <LazyMotion features={domAnimation}>
@@ -92,7 +95,6 @@ export default function Hero() {
             <span>Eyongtarh</span>
             <span>Besong</span>
           </m.h1>
-
           <m.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

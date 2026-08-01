@@ -9,6 +9,7 @@ import "./assets/styles/variables.css";
 import "./assets/styles/typography.css";
 import "./assets/styles/animations.css";
 import "./assets/styles/globals.css";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ErrorBoundary>

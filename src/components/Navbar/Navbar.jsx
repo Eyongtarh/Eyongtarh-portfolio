@@ -1,6 +1,8 @@
+// Renders the responsive navigation bar with active section tracking and mobile menu support.
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
+
 const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
@@ -11,6 +13,7 @@ const navItems = [
   { id: "interests", label: "Interests" },
   { id: "contact", label: "Contact" },
 ];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

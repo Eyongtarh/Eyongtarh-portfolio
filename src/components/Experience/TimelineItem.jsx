@@ -1,9 +1,9 @@
+// Renders an animated timeline item displaying a professional experience entry.
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function TimelineItem({ item, index }) {
   const Icon = item.icon;
-
   return (
     <motion.article
       className="timeline-item"
@@ -29,14 +29,10 @@ export default function TimelineItem({ item, index }) {
           focusable="false"
         />
       </div>
-
       <div className="timeline-card">
         <span className="timeline-period">{item.period}</span>
-
         <h3>{item.role}</h3>
-
         <h4>{item.company}</h4>
-
         <p className="timeline-location">
           <FaMapMarkerAlt
             size={14}
@@ -49,15 +45,12 @@ export default function TimelineItem({ item, index }) {
           />
           {item.location}
         </p>
-
         <p className="timeline-summary">{item.summary}</p>
-
         <ul>
           {item.highlights.map((point) => (
             <li key={point}>{point}</li>
           ))}
         </ul>
-
         <div className="timeline-skills">
           {item.technologies.map((tech) => (
             <span key={tech}>{tech}</span>

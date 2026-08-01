@@ -1,4 +1,6 @@
+// Animated illustration component for displaying visual feedback on error pages.
 import { motion } from "framer-motion";
+
 export default function ErrorIllustration({ code }) {
   const getIcon = () => {
     switch (code) {

@@ -1,6 +1,7 @@
 // Displays the custom 500 Internal Server Error page when an unexpected application error occurs.
 import ErrorLayout from "../components/ErrorLayout";
 import background from "../assets/errors/error.png";
+
 export default function ServerError({ onReload, onHome }) {
   return (
     <ErrorLayout

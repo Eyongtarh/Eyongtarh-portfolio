@@ -1,3 +1,4 @@
+// Renders the footer with navigation links, social profiles, a downloadable CV, and copyright information.
 import "./Footer.css";
 import {
   FaGithub,
@@ -6,6 +7,7 @@ import {
   FaDownload,
   FaArrowUp,
 } from "react-icons/fa";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const quickLinks = [
@@ -17,6 +19,7 @@ export default function Footer() {
     { name: "Interests", href: "#interests" },
     { name: "Contact", href: "#contact" },
   ];
+
   const socialLinks = [
     {
       icon: FaGithub,

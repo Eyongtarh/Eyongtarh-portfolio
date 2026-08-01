@@ -1,103 +1,53 @@
-/*
-========================================
-Experience Section
-========================================
-*/
-
+/* Experience Section */
 .experience {
   padding: 120px 8%;
-
   background: var(--background);
 }
-
 .experience h2 {
   text-align: center;
-
   margin-bottom: 20px;
 }
-
 .section-text {
   max-width: 800px;
-
   margin: 0 auto 70px;
-
   text-align: center;
-
   color: var(--muted);
-
   line-height: 1.8;
 }
-
-/*
-========================================
-Statistics Grid
-========================================
-*/
-
+/* Statistics Grid */
 .stats-grid {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-
   gap: 30px;
-
   margin-bottom: 90px;
 }
-
-/*
-========================================
-Statistics Card
-========================================
-*/
-
+/* Statistics Card */
 .stat-box {
   position: relative;
-
   padding: 35px;
-
   text-align: center;
-
   background: var(--surface);
-
   border: 1px solid var(--border);
-
   border-radius: 20px;
-
   overflow: hidden;
-
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
-
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
 }
-
 .stat-box:hover {
   transform: translateY(-8px);
-
   border-color: var(--primary);
-
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
-
-/*
-========================================
-Animated Gradient Border
-========================================
-*/
-
+/* Animated Gradient Border */
 .stat-box::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   padding: 1px;
-
   border-radius: inherit;
-
   background: linear-gradient(
     135deg,
     transparent,
@@ -105,245 +55,133 @@ Animated Gradient Border
     transparent,
     var(--secondary)
   );
-
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask-composite: xor;
-
   mask-composite: exclude;
-
   pointer-events: none;
 }
-
-/*
-========================================
-Glow Effect
-========================================
-*/
-
+/* Glow Effect */
 .stat-box::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   opacity: 0;
-
   pointer-events: none;
-
   transition: opacity 0.25s ease;
-
   background: radial-gradient(
     circle at top right,
     rgba(59, 130, 246, 0.12),
     transparent 60%
   );
 }
-
 .stat-box:hover::after {
   opacity: 1;
 }
-
-/*
-========================================
-Statistics Typography
-========================================
-*/
-
+/* Statistics Typography */
 .stat-box h3 {
   margin-bottom: 10px;
-
   color: var(--primary);
-
   font-size: 2.6rem;
-
   font-weight: 700;
-
   transition: color 0.25s ease;
 }
-
 .stat-box:hover h3 {
   color: var(--secondary);
 }
-
 .stat-box p {
   color: var(--muted);
-
   font-weight: 500;
-
   line-height: 1.6;
 }
-
-/*
-========================================
-Timeline
-========================================
-*/
-
+/* Timeline */
 .timeline {
   position: relative;
-
   max-width: 980px;
-
   margin: 0 auto;
 }
-
-/*
-========================================
-Timeline Vertical Line
-========================================
-*/
-
+/* Timeline Vertical Line */
 .timeline::before {
   content: "";
-
   position: absolute;
-
   top: 0;
-
   bottom: 0;
-
   left: 30px;
-
   width: 3px;
-
   border-radius: 999px;
-
   background: linear-gradient(to bottom, var(--primary), var(--secondary));
-
   opacity: 0.85;
 }
-
-/*
-========================================
-Timeline Item
-========================================
-*/
-
+/* Timeline Item */
 .timeline-item {
   position: relative;
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 28px;
-
   margin-bottom: 60px;
 }
-
-/*
-========================================
-Timeline Marker
-========================================
-*/
-
+/* Timeline Marker */
 .timeline-marker {
   position: relative;
-
   width: 60px;
-
   height: 60px;
-
   flex-shrink: 0;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   border-radius: 50%;
-
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-
   color: white;
-
   font-size: 1.25rem;
-
   z-index: 2;
-
   box-shadow:
     0 0 0 6px rgba(59, 130, 246, 0.1),
     0 12px 30px rgba(59, 130, 246, 0.35);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .timeline-item:hover .timeline-marker {
   transform: scale(1.08);
-
   box-shadow:
     0 0 0 8px rgba(6, 182, 212, 0.12),
     0 16px 36px rgba(6, 182, 212, 0.4);
 }
-
 .timeline-marker i {
   font-size: 1.3rem;
 }
-/*
-========================================
-Timeline Card
-========================================
-*/
-
+/* Timeline Card */
 .timeline-card {
   position: relative;
-
   flex: 1;
-
   padding: 35px;
-
   background: var(--surface);
-
   border: 1px solid var(--border);
-
   border-radius: 20px;
-
   overflow: hidden;
-
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
-
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
 }
-
 .timeline-card:hover {
   transform: translateY(-8px);
-
   border-color: var(--primary);
-
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
-
 /*
-========================================
-Animated Border
-========================================
-*/
-
+Animated Border */
 .timeline-card::before {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   padding: 1px;
-
   border-radius: inherit;
-
   background: linear-gradient(
     135deg,
     transparent,
@@ -351,197 +189,110 @@ Animated Border
     transparent,
     var(--secondary)
   );
-
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask-composite: xor;
-
   mask-composite: exclude;
-
   pointer-events: none;
 }
-
-/*
-========================================
-Glow
-========================================
-*/
-
+/* Glow */
 .timeline-card::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   opacity: 0;
-
   pointer-events: none;
-
   transition: opacity 0.25s ease;
-
   background: radial-gradient(
     circle at top right,
     rgba(59, 130, 246, 0.12),
     transparent 60%
   );
 }
-
 .timeline-card:hover::after {
   opacity: 1;
 }
-
-/*
-========================================
-Period Badge
-========================================
-*/
-
+/* Period Badge */
 .timeline-period {
   display: inline-flex;
-
   align-items: center;
-
   padding: 8px 16px;
-
   margin-bottom: 20px;
-
   border-radius: 999px;
-
   background: rgba(59, 130, 246, 0.1);
-
   border: 1px solid rgba(59, 130, 246, 0.2);
-
   color: var(--secondary);
-
   font-size: 0.9rem;
-
   font-weight: 600;
 }
-
-/*
-========================================
-Typography
-========================================
-*/
-
+/* Typography */
 .timeline-card h3 {
   margin-bottom: 8px;
-
   transition: color 0.25s ease;
 }
-
 .timeline-card:hover h3 {
   color: var(--secondary);
 }
-
 .timeline-card h4 {
   margin-bottom: 16px;
-
   color: var(--primary);
-
   font-size: 1rem;
-
   font-weight: 600;
 }
-
 .timeline-location {
   display: flex;
-
   align-items: center;
-
   gap: 10px;
-
   margin-bottom: 22px;
-
   color: var(--muted);
-
   font-size: 0.95rem;
 }
-
 .timeline-location i {
   color: var(--secondary);
 }
-
 .timeline-summary {
   margin-bottom: 24px;
-
   color: var(--muted);
-
   line-height: 1.8;
 }
-
-/*
-========================================
-Highlights
-========================================
-*/
-
+/* Highlights */
 .timeline-card ul {
   margin: 0;
-
   padding-left: 20px;
 }
-
 .timeline-card li {
   margin-bottom: 12px;
-
   color: var(--muted);
-
   line-height: 1.7;
 }
-
 .timeline-card li:last-child {
   margin-bottom: 0;
 }
-
 .timeline-card li::marker {
   color: var(--primary);
 }
-
-/*
-========================================
-Technology Stack
-========================================
-*/
-
+/* Technology Stack */
 .timeline-skills {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 12px;
-
   margin-top: 30px;
 }
-
 .timeline-skills span {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   padding: 8px 16px;
-
   border-radius: 999px;
-
   background: rgba(59, 130, 246, 0.08);
-
   border: 1px solid rgba(59, 130, 246, 0.2);
-
   color: var(--text);
-
   font-size: 0.88rem;
-
   font-weight: 500;
-
   transition:
     transform 0.25s ease,
     background 0.25s ease,
@@ -549,113 +300,79 @@ Technology Stack
     color 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .timeline-skills span:hover {
   transform: translateY(-3px);
-
   background: rgba(6, 182, 212, 0.16);
-
   border-color: var(--secondary);
-
   color: white;
-
   box-shadow: 0 10px 22px rgba(6, 182, 212, 0.25);
 }
-
-/*
-========================================
-Responsive
-========================================
-*/
-
+/* Responsive */
 @media (max-width: 992px) {
   .experience {
     padding: 110px 6%;
   }
-
   .stats-grid {
     gap: 25px;
   }
 }
-
 @media (max-width: 768px) {
   .experience {
     padding: 100px 5%;
   }
-
   .timeline::before {
     left: 23px;
   }
-
   .timeline-item {
     gap: 18px;
-
     margin-bottom: 45px;
   }
-
   .timeline-marker {
     width: 46px;
-
     height: 46px;
-
     font-size: 1rem;
   }
-
   .timeline-marker i {
     font-size: 1rem;
   }
-
   .timeline-card {
     padding: 26px;
   }
-
   .timeline-skills {
     gap: 10px;
   }
 }
-
 @media (max-width: 480px) {
   .experience h2 {
     margin-bottom: 16px;
   }
-
   .section-text {
     margin-bottom: 50px;
   }
-
   .stats-grid {
     grid-template-columns: 1fr;
   }
-
   .stat-box {
     padding: 28px;
   }
-
   .stat-box h3 {
     font-size: 2.2rem;
   }
-
   .timeline::before {
     left: 20px;
   }
-
   .timeline-marker {
     width: 40px;
-
     height: 40px;
   }
-
   .timeline-card {
     padding: 22px;
   }
-
   .timeline-location {
     align-items: flex-start;
   }
-
   .timeline-skills span {
     font-size: 0.8rem;
-
     padding: 7px 14px;
   }
 }

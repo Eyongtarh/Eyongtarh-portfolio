@@ -1,3 +1,4 @@
+// Renders the education section by displaying academic qualifications in animated cards.
 import { motion } from "framer-motion";
 import { FaLaptopCode, FaGraduationCap, FaUniversity } from "react-icons/fa";
 import "./Education.css";
@@ -40,11 +41,9 @@ export default function Education() {
         >
           Education
         </motion.h2>
-
         <div className="education-grid">
           {education.map((item, index) => {
             const Icon = item.icon;
-
             return (
               <motion.article
                 key={item.title}
@@ -63,13 +62,9 @@ export default function Education() {
                   role="presentation"
                   focusable="false"
                 />
-
                 <h3>{item.title}</h3>
-
                 <h4>{item.subtitle}</h4>
-
                 {item.period && <span>{item.period}</span>}
-
                 <p>{item.text}</p>
               </motion.article>
             );

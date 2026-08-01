@@ -11,6 +11,7 @@ import {
   FaPrint,
   FaCog,
 } from "react-icons/fa";
+
 const experience = [
   {
     id: 1,
@@ -71,7 +72,6 @@ const experience = [
     ],
     technologies: ["Consulting", "Business Analysis", "Project Management"],
   },
-
   {
     id: 4,
     icon: FaCar,
@@ -89,7 +89,6 @@ const experience = [
     ],
     technologies: ["Training", "Coaching", "Communication"],
   },
-
   {
     id: 5,
     icon: FaShip,
@@ -106,7 +105,6 @@ const experience = [
     ],
     technologies: ["Logistics", "Operations", "Supply Chain"],
   },
-
   {
     id: 6,
     icon: FaBuilding,
@@ -117,7 +115,6 @@ const experience = [
     period: "October 2012 - June 2018",
     summary:
       "Co-managed business operations while overseeing the company's financial management, accounting, and administrative functions.",
-
     highlights: [
       "Co-managed daily business operations and strategic planning.",
       "Maintained financial records, bookkeeping, and accounting processes.",
@@ -125,7 +122,6 @@ const experience = [
       "Oversaw planning, administration, and regulatory compliance.",
       "Built and maintained strong customer and stakeholder relationships.",
     ],
-
     technologies: [
       "Leadership",
       "Business Management",
@@ -137,7 +133,6 @@ const experience = [
       "Planning",
     ],
   },
-
   {
     id: 7,
     icon: FaTruck,
@@ -153,7 +148,6 @@ const experience = [
     ],
     technologies: ["Customer Service", "Reliability"],
   },
-
   {
     id: 8,
     icon: FaSchool,
@@ -171,7 +165,6 @@ const experience = [
     ],
     technologies: ["Assessment", "Attention to Detail", "Communication"],
   },
-
   {
     id: 9,
     icon: FaSchool,
@@ -188,7 +181,6 @@ const experience = [
     ],
     technologies: ["Teaching", "Leadership", "Public Speaking"],
   },
-
   {
     id: 10,
     icon: FaSchool,
@@ -205,7 +197,6 @@ const experience = [
     ],
     technologies: ["Teaching", "Leadership", "Public Speaking"],
   },
-
   {
     id: 11,
     icon: FaPrint,
@@ -229,7 +220,6 @@ const experience = [
       "Operations Management",
     ],
   },
-
   {
     id: 12,
     icon: FaCog,
@@ -241,7 +231,7 @@ const experience = [
     summary: "Operations support.",
     highlights: [
       "Supported business operations.",
-      "Worked across operational departments.",
+      "Loan administration support, that is, processing loan documentation, disbursements, and repayments.",
     ],
     technologies: ["Operations", "Administration"],
   },

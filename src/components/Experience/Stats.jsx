@@ -1,3 +1,4 @@
+// Renders animated statistics that summarize professional experience and achievements.
 import { motion } from "framer-motion";
 import { FaBriefcase, FaBuilding, FaGlobeEurope, FaCode } from "react-icons/fa";
 
@@ -33,7 +34,6 @@ export default function Stats() {
     <div className="stats-grid">
       {stats.map((stat, index) => {
         const Icon = stat.icon;
-
         return (
           <motion.div
             key={stat.label}
@@ -56,9 +56,7 @@ export default function Stats() {
               role="presentation"
               focusable="false"
             />
-
             <h3>{stat.value}</h3>
-
             <p>{stat.label}</p>
           </motion.div>
         );

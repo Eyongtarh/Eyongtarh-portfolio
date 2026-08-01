@@ -1,6 +1,8 @@
+// Renders the About section with animated cards highlighting professional background, skills, and experience.
 import { motion } from "framer-motion";
 import { FaCode, FaLightbulb, FaUsers } from "react-icons/fa";
 import "./About.css";
+
 const cards = [
   {
     icon: FaCode,

@@ -1,5 +1,7 @@
+// Error boundary component for catching runtime errors and displaying a fallback error page.
 import { Component } from "react";
 import ServerError from "../pages/ServerError";
+
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -45,4 +47,5 @@ class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
+
 export default ErrorBoundary;

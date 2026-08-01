@@ -1,3 +1,4 @@
+// Renders the skills section with animated skill groups and technology badges.
 import { memo } from "react";
 import { motion } from "framer-motion";
 import skills from "../../data/skills";
@@ -11,7 +12,6 @@ const containerVariants = {
     },
   },
 };
-
 const badgeVariants = {
   hidden: {
     opacity: 0,
@@ -24,7 +24,6 @@ const badgeVariants = {
     y: 0,
   },
 };
-
 const SkillGroup = memo(function SkillGroup({ title, data }) {
   return (
     <motion.div
@@ -34,7 +33,6 @@ const SkillGroup = memo(function SkillGroup({ title, data }) {
       viewport={{ once: true }}
     >
       <h3>{title}</h3>
-
       <motion.div
         className="badge-container"
         variants={containerVariants}
@@ -44,7 +42,6 @@ const SkillGroup = memo(function SkillGroup({ title, data }) {
       >
         {data.map((skill) => {
           const Icon = skill.icon;
-
           return (
             <motion.span
               key={skill.name}
@@ -61,7 +58,6 @@ const SkillGroup = memo(function SkillGroup({ title, data }) {
                   focusable="false"
                 />
               )}
-
               <span>{skill.name}</span>
             </motion.span>
           );
@@ -82,7 +78,6 @@ export default function Skills() {
         >
           Skills & Technologies
         </motion.h2>
-
         {Object.entries(skills).map(([title, data]) => (
           <SkillGroup key={title} title={title} data={data} />
         ))}

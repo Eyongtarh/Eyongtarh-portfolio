@@ -1,6 +1,4 @@
-/*
-About Section
-*/
+/* About Section */
 .about {
   padding: 120px 8%;
   background: var(--background);
@@ -17,17 +15,13 @@ About Section
   font-size: 1.08rem;
   line-height: 1.9;
 }
-/*
-Grid
-*/
+/* Grid */
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 35px;
 }
-/*
-About Card
-*/
+/* About Card */
 .about-card {
   position: relative;
   background: var(--surface);
@@ -46,9 +40,7 @@ About Card
   border-color: var(--primary);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
-/*
-Animated Border
-*/
+/* Animated Border */
 .about-card::before {
   content: "";
   position: absolute;
@@ -72,9 +64,7 @@ Animated Border
   mask-composite: exclude;
   pointer-events: none;
 }
-/*
-Glow Effect
-*/
+/* Glow Effect */
 .about-card::after {
   content: "";
   position: absolute;
@@ -91,9 +81,7 @@ Glow Effect
 .about-card:hover::after {
   opacity: 1;
 }
-/*
-Icon
-*/
+/* Icon */
 .about-card i {
   width: 72px;
   height: 72px;
@@ -116,9 +104,7 @@ Icon
   background: rgba(6, 182, 212, 0.16);
   box-shadow: 0 12px 28px rgba(6, 182, 212, 0.25);
 }
-/*
-Typography
-*/
+/* Typography */
 .about-card h3 {
   margin-bottom: 15px;
   transition: color 0.25s ease;
@@ -130,9 +116,7 @@ Typography
   color: var(--muted);
   line-height: 1.8;
 }
-/*
-Responsive
-*/
+/* Responsive */
 @media (max-width: 992px) {
   .about {
     padding: 110px 6%;

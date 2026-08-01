@@ -468,6 +468,12 @@ No errors or warnings were found when passing through the official [W3C](https:/
 
 - ![HTML validation report](public/images/projects/html_validation.png)
 
+### Google Rich Results Test
+
+The website's structured data was tested using Google's official [Rich Results Test](https://search.google.com/test/rich-results). The site was crawled successfully, and no errors were detected. As this is a personal portfolio website, no rich results are expected or required.
+
+- ![Google Rich Results Test](public/images/projects/rich-results-test.png)
+
 <p align="right">(<a href="#top">Back to Top ↑</a>)</p>
 
 ---

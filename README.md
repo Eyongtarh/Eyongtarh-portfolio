@@ -10,7 +10,6 @@ A modern, responsive, and interactive portfolio website showcasing my skills, ex
 ![GitHub repo size](https://img.shields.io/github/repo-size/Eyongtarh/Eyongtarh-portfolio)
 ![GitHub top language](https://img.shields.io/github/languages/top/Eyongtarh/Eyongtarh-portfolio)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-eyongtarh.com-000000?logo=vercel&logoColor=white)](https://eyongtarh.com)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Eyongtarh.Eyongtarh-portfolio)
 
 ---
@@ -563,7 +562,7 @@ The following technologies, tools, and resources were used in the development of
 - **Vite** : Frontend build tool and development server.
 - **JavaScript (ES6+)** : Application logic and interactivity.
 - **HTML5** : Semantic page structure.
-- **CSS3** –:Custom styling, animations, and responsive layouts.
+- **CSS3** : Custom styling, animations, and responsive layouts.
 - **Framer Motion** : Smooth animations and page transitions.
 - **Font Awesome** : Icons used throughout the portfolio.
 - **React Icons** : Icon library providing scalable SVG icons.
@@ -593,7 +592,7 @@ The following technologies, tools, and resources were used in the development of
 - **Figma** : UI design, wireframes, and design planning.
 - **favicon.io** : Favicon generation.
 - **CompressPNG** : Image compression.
-- **IMGonline** – Image resizing and optimisation.
+- **IMGonline** : Image resizing and optimisation.
 
 ### Acknowledgements
 

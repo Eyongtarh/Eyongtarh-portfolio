@@ -1,4 +1,4 @@
-# Augustine Eyongtarh Besong - Portfolio
+# Eyongtarh Besong - Portfolio
 
 A modern, responsive, and interactive portfolio website showcasing my skills, experience, education, and projects as a **Full Stack Software Developer**. Built with **React**, **Vite**, and **Framer Motion**, the website emphasises performance, accessibility, and clean user experience with a premium glassmorphism-inspired design.
 

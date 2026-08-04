@@ -261,8 +261,10 @@ Eyongtarh-portfolio/
 │   │
 │   ├── 404.html                       # SPA fallback page
 │   ├── cv.pdf                         # Downloadable CV
+│   ├── cv2.pdf                        # Alternative CV
 │   ├── favicon.ico
 │   ├── humans.txt
+│   ├── LICENSE                        # MIT License
 │   ├── logo.png
 │   ├── og-image.png                   # Open Graph image
 │   ├── profile.webp                   # Optimised profile image
@@ -327,7 +329,6 @@ Eyongtarh-portfolio/
 ├── .nvmrc                             # Recommended Node.js version
 ├── eslint.config.js                   # ESLint configuration
 ├── index.html                         # HTML entry point
-├── LICENSE                            # MIT License
 ├── package.json                       # Dependencies and npm scripts
 ├── package-lock.json                  # Locked dependency versions
 ├── postcss.config.js                  # PostCSS configuration

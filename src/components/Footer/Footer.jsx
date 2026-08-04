@@ -112,7 +112,16 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <p>
-            © {currentYear} Eyongtarh Besong. Licensed under the MIT License.
+            © {currentYear} Eyongtarh Besong. Licensed under the{" "}
+            <a
+              href="/LICENSE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="license-link"
+            >
+              MIT License
+            </a>
+            .
           </p>
           <p>Göteborg, Sweden.</p>
           <a href="#home" className="back-to-top" aria-label="Back to top">

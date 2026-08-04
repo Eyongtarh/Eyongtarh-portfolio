@@ -280,6 +280,7 @@ Eyongtarh-portfolio/
 │   ├── logo.png
 │   ├── og-image.png                   # Open Graph image
 │   ├── profile.webp                   # Optimised profile image
+│   ├── qr-portfolio.svg               # Portfolio QR code
 │   ├── robots.txt
 │   ├── security.txt
 │   ├── site.webmanifest

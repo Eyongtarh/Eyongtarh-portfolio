@@ -12,6 +12,18 @@ A modern, responsive, and interactive portfolio website showcasing my skills, ex
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-eyongtarh.com-000000?logo=vercel&logoColor=white)](https://eyongtarh.com)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Eyongtarh.Eyongtarh-portfolio)
 
+<p align="center">
+  <a href="https://eyongtarh.com">
+<img src="./public/qr-portfolio.svg"
+     width="180"
+     alt="Scan to visit my portfolio">
+  </a>
+</p>
+
+<p align="center">
+  <strong>📱 Scan to visit my portfolio</strong>
+</p>
+
 ---
 
 **Live Website: [Link to website](https://eyongtarh.com/)**

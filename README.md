@@ -587,6 +587,7 @@ The following technologies, tools, and resources were used in the development of
 - **Font Awesome** : Icons used throughout the portfolio.
 - **React Icons** : Icon library providing scalable SVG icons.
 - **EmailJS** : Client-side email service powering the contact form.
+- **QRCode Monkey** : Free QR code generator used to create customisable, high-quality QR codes for the portfolio.
 - **Fontsource (Inter)** : Self-hosted font package used for typography.
 
 ### Development Tools

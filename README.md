@@ -278,7 +278,7 @@ Eyongtarh-portfolio/
 │   ├── humans.txt
 │   ├── LICENSE                        # MIT License
 │   ├── logo.png
-│   ├── og-image.png                   # Open Graph image
+│   ├── og-image.webp                  # Open Graph image
 │   ├── profile.webp                   # Optimised profile image
 │   ├── qr-portfolio.svg               # Portfolio QR code
 │   ├── robots.txt

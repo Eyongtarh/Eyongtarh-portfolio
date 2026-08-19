@@ -48,7 +48,7 @@ export default function Footer() {
             <h2>Eyongtarh Besong</h2>
             <p>
               Full Stack Software Developer passionate about building modern,
-              scalable, and user-friendly web applications.
+              scalable, and user friendly web applications.
             </p>
           </div>
           <div className="footer-links">

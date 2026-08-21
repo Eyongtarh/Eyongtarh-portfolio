@@ -6,8 +6,8 @@
   right: 0;
   z-index: 999;
   width: 100%;
-  padding: 18px 8%;
   box-sizing: border-box;
+  padding: 18px 8%;
   transition:
     background 0.35s ease,
     backdrop-filter 0.35s ease,

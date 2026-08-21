@@ -1,22 +1,24 @@
 /* navbar */
 .navbar {
   position: fixed;
-  inset: 0 0 auto 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 999;
   width: 100%;
-  padding: 20px 8%;
+  padding: 18px 8%;
+  box-sizing: border-box;
   transition:
     background 0.35s ease,
     backdrop-filter 0.35s ease,
-    box-shadow 0.35s ease,
-    padding 0.35s ease;
+    box-shadow 0.35s ease;
 }
 .navbar-scrolled {
   background: rgba(15, 23, 42, 0.82);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  padding: 14px 8%;
+  padding: 18px 8%;
 }
 .nav-container {
   display: flex;
@@ -133,11 +135,9 @@
 }
 /* Mobile */
 @media (max-width: 600px) {
-  .navbar {
-    padding: 18px 6%;
-  }
+  .navbar,
   .navbar-scrolled {
-    padding: 12px 6%;
+    padding: 14px 6%;
   }
   .logo span {
     display: none;

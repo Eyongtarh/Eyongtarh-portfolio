@@ -1,159 +1,179 @@
-// Renders and manages the contact form, including validation, submission, and user feedback.
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { sendEmail } from "../../utils/emailjs";
+// Contact form with client validation, spam protection and accessible feedback.
+import { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { FaPaperPlane, FaSpinner } from "react-icons/fa";
+import Reveal from "../Reveal/Reveal";
+import { clean, validate } from "./validation";
+import { sendEmail, LIMITS } from "../../utils/emailjs";
+import { CONTACT_EMAIL } from "../../data/site";
+import { config } from "../../config/env";
 
-const initialForm = {
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
+const MIN_FILL_MS = 3000;
+
+const FIELDS = [
+  { id: "name", label: "Full name", autoComplete: "name", placeholder: "Jane Smith" },
+  {
+    id: "email",
+    label: "Email address",
+    type: "email",
+    autoComplete: "email",
+    inputMode: "email",
+    placeholder: "jane@example.com",
+  },
+  { id: "subject", label: "Subject", autoComplete: "off", placeholder: "Project enquiry" },
+  {
+    id: "message",
+    label: "Message",
+    as: "textarea",
+    rows: 6,
+    placeholder: "Tell me about your project",
+  },
+];
+
+const initialForm = { name: "", email: "", subject: "", message: "" };
+
+const ERROR_MESSAGES = {
+  rate_limited: "You've just sent a message. Please wait a moment before sending another.",
+  timeout: "The request took too long. Please check your connection and try again.",
+  config: `The form is temporarily unavailable. Please email me at ${CONTACT_EMAIL}.`,
+};
+const DEFAULT_ERROR = `Your message could not be sent. Please try again later or email me at ${CONTACT_EMAIL}.`;
+const SUCCESS = "Thank you, your message has been sent. I'll reply as soon as I can.";
+
+function Field({ id, label, as: Tag = "input", error, ...props }) {
+  const errorId = `${id}-error`;
+  return (
+    <div className="form-group">
+      <label htmlFor={id}>{label}</label>
+      <Tag
+        id={id}
+        name={id}
+        required
+        maxLength={LIMITS[id]}
+        aria-invalid={error ? "true" : undefined}
+        aria-describedby={error ? errorId : undefined}
+        {...props}
+      />
+      {error && (
+        <p id={errorId} className="error-text">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+Field.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  as: PropTypes.elementType,
+  error: PropTypes.string,
 };
 
 export default function ContactForm() {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState({
-    type: "",
-    message: "",
-  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [honeypot, setHoneypot] = useState("");
+  const formRef = useRef(null);
+  const mountedAt = useRef(0);
+
+  // Record when the form appeared, for the bot timing check. Reading the clock
+  // belongs in an effect, not during render.
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
+
   function handleChange(e) {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
   }
-  function validate() {
-    const validationErrors = {};
-    if (!formData.name.trim()) {
-      validationErrors.name = "Please enter your name.";
-    }
-    if (!formData.email.trim()) {
-      validationErrors.email = "Please enter your email.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      validationErrors.email = "Please enter a valid email address.";
-    }
-    if (!formData.subject.trim()) {
-      validationErrors.subject = "Please enter a subject.";
-    }
-    if (!formData.message.trim()) {
-      validationErrors.message = "Please enter your message.";
-    }
-    return validationErrors;
-  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length) {
-      setErrors(validationErrors);
+    if (sending) return;
+
+    // Bots fill hidden fields or submit instantly. Pretend success and stop.
+    if (honeypot || Date.now() - mountedAt.current < MIN_FILL_MS) {
+      setStatus({ type: "success", message: SUCCESS });
       return;
     }
+
+    const values = clean(formData);
+    const found = validate(values);
+    const firstInvalid = Object.keys(found)[0];
+    if (firstInvalid) {
+      setErrors(found);
+      formRef.current?.querySelector(`#${firstInvalid}`)?.focus();
+      return;
+    }
+
+    setSending(true);
+    setStatus({ type: "", message: "" });
     try {
-      setSending(true);
-      setStatus({
-        type: "",
-        message: "",
-      });
-      await sendEmail(formData);
-      setStatus({
-        type: "success",
-        message:
-          "Your message has been sent successfully. I'll get back to you as soon as possible.",
-      });
+      await sendEmail(values);
       setFormData(initialForm);
+      setErrors({});
+      setStatus({ type: "success", message: SUCCESS });
     } catch (error) {
-      console.error(error);
-      setStatus({
-        type: "error",
-        message:
-          "Something went wrong while sending your message. Please try again later.",
-      });
+      if (config.isDev) console.error(error);
+      setStatus({ type: "error", message: ERROR_MESSAGES[error?.code] ?? DEFAULT_ERROR });
     } finally {
       setSending(false);
     }
   }
+
   return (
-    <motion.div
-      className="contact-form-wrapper"
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <form className="contact-form" onSubmit={handleSubmit} noValidate>
-        <div className="form-group">
-          <label htmlFor="name">Full Name</label>
+    <Reveal className="card card--static contact-form-wrapper">
+      <form
+        ref={formRef}
+        className="contact-form"
+        onSubmit={handleSubmit}
+        noValidate
+        aria-label="Contact form"
+      >
+        {FIELDS.map(({ id, ...field }) => (
+          <Field
+            key={id}
+            id={id}
+            {...field}
+            value={formData[id]}
+            onChange={handleChange}
+            error={errors[id]}
+          />
+        ))}
+
+        <div className="hp-field" aria-hidden="true">
+          <label htmlFor="website">Website</label>
           <input
-            id="name"
+            id="website"
+            name="website"
             type="text"
-            name="name"
-            placeholder="John Doe"
-            value={formData.name}
-            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
           />
-          {errors.name && <small className="error-text">{errors.name}</small>}
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email Address</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="john@example.com"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <small className="error-text">{errors.email}</small>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="subject">Subject</label>
-          <input
-            id="subject"
-            type="text"
-            name="subject"
-            placeholder="Project Inquiry"
-            value={formData.subject}
-            onChange={handleChange}
-          />
-          {errors.subject && (
-            <small className="error-text">{errors.subject}</small>
-          )}
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="6"
-            placeholder="Tell me about your project..."
-            value={formData.message}
-            onChange={handleChange}
-          />
-          {errors.message && (
-            <small className="error-text">{errors.message}</small>
-          )}
-        </div>
-        <button className="submit-btn" type="submit" disabled={sending}>
+
+        <button className="submit-btn" type="submit" disabled={sending} aria-busy={sending}>
           {sending ? (
             <>
-              <i className="fa-solid fa-spinner fa-spin"></i> Sending...
+              <FaSpinner className="spin" aria-hidden="true" focusable="false" /> Sending
             </>
           ) : (
             <>
-              <i className="fa-solid fa-paper-plane"></i> Send Message
+              <FaPaperPlane aria-hidden="true" focusable="false" /> Send message
             </>
           )}
         </button>
-        {status.message && (
-          <div className={`form-status ${status.type}`}>{status.message}</div>
-        )}
+
+        <div role="status" aria-live="polite">
+          {status.message && <p className={`form-status ${status.type}`}>{status.message}</p>}
+        </div>
       </form>
-    </motion.div>
+    </Reveal>
   );
 }

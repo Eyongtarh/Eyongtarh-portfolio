@@ -1,138 +1,62 @@
-// Renders contact information and social links with animated icons and interactive links.
-import { motion } from "framer-motion";
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaGithub,
-  FaLinkedin,
-} from "react-icons/fa";
+// Contact details and social links.
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import Reveal from "../Reveal/Reveal";
+import SocialLinks from "../SocialLinks/SocialLinks";
+import { CONTACT_EMAIL, CONTACT_PHONE, LOCATION, linkProps } from "../../data/site";
+
 const contactItems = [
   {
     icon: FaEnvelope,
-    color: "#ffffff",
-    title: "Email",
-    value: "eyongtarhb@gmail.com",
-    link: "mailto:eyongtarhb@gmail.com",
+    color: "#F8FAFC",
+    label: "Email",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
   },
   {
     icon: FaPhone,
-    color: "#22C55E",
-    title: "Phone",
-    value: "+46 733994133",
-    link: "tel:+46733994133",
+    color: "#4ADE80",
+    label: "Phone",
+    value: CONTACT_PHONE.display,
+    href: CONTACT_PHONE.href,
   },
   {
     icon: FaMapMarkerAlt,
-    color: "#EF4444",
-    title: "Location",
-    value: "Göteborg, Sweden",
-    link: "https://maps.google.com/?q=Gothenburg,Sweden",
+    color: "#F87171",
+    label: "Location",
+    value: LOCATION.display,
+    href: LOCATION.mapUrl,
   },
 ];
-const socialLinks = [
-  {
-    icon: FaGithub,
-    color: "#ffffff",
-    name: "GitHub",
-    url: "https://github.com/Eyongtarh",
-  },
-  {
-    icon: FaLinkedin,
-    color: "#0A66C2",
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BB4C9QtntQn2cFJU2nmfRNQ%3D%3D",
-  },
-  {
-    icon: FaEnvelope,
-    color: "#ffffff",
-    name: "Email",
-    url: "mailto:eyongtarhb@gmail.com",
-  },
-];
+
 export default function ContactInfo() {
   return (
-    <motion.aside
-      className="contact-info"
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <h3>Contact Information</h3>
-      <p>
-        I'm currently open to freelance opportunities, full-time positions, and
-        exciting collaborations. Feel free to reach out through any of the
-        channels below.
+    <Reveal as="aside" className="card card--static contact-info" aria-labelledby="contact-info-title">
+      <h3 id="contact-info-title">Contact information</h3>
+      <p className="contact-intro">
+        I&apos;m currently open to freelance work, full time positions and exciting
+        collaborations. Feel free to reach out through any of the channels below.
       </p>
-      <div className="contact-list">
-        {contactItems.map((item) => {
-          const Icon = item.icon;
-          return (
-            <div className="contact-item" key={item.title}>
-              <div className="contact-icon">
-                <Icon
-                  size={22}
-                  style={{
-                    color: item.color,
-                  }}
-                  aria-hidden="true"
-                  role="presentation"
-                  focusable="false"
-                />
-              </div>
-              <div>
-                <h4>{item.title}</h4>
-                {item.link ? (
-                  <a
-                    href={item.link}
-                    target={item.link.startsWith("http") ? "_blank" : undefined}
-                    rel={
-                      item.link.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <span>{item.value}</span>
+
+      <ul className="contact-list reset-list">
+        {contactItems.map(({ icon: Icon, color, label, value, href }) => (
+          <li className="contact-item" key={label}>
+            <span className="contact-icon" aria-hidden="true">
+              <Icon size={22} style={{ color }} focusable="false" />
+            </span>
+            <span className="contact-text">
+              <span className="contact-label">{label}</span>
+              <a href={href} {...linkProps(href)}>
+                {value}
+                {linkProps(href).target && (
+                  <span className="visually-hidden"> (opens map in a new tab)</span>
                 )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="social-links">
-        {socialLinks.map((social) => {
-          const Icon = social.icon;
-          return (
-            <a
-              key={social.name}
-              href={social.url}
-              target={social.url.startsWith("http") ? "_blank" : undefined}
-              rel={
-                social.url.startsWith("http")
-                  ? "noopener noreferrer"
-                  : undefined
-              }
-              aria-label={`Visit my ${social.name}${
-                social.url.startsWith("http") ? " (opens in a new tab)" : ""
-              }`}
-            >
-              <Icon
-                size={22}
-                style={{
-                  color: social.color,
-                }}
-                aria-hidden="true"
-                role="presentation"
-                focusable="false"
-              />
-            </a>
-          );
-        })}
-      </div>
-    </motion.aside>
+              </a>
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <SocialLinks className="social-links" />
+    </Reveal>
   );
 }

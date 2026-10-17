@@ -1,45 +1,27 @@
-// Animated illustration component for displaying visual feedback on error pages.
-import { motion } from "framer-motion";
+// Animated icon for error pages.
+import PropTypes from "prop-types";
+import { motion, useReducedMotion } from "framer-motion";
+import { FaMapSigns, FaExclamationTriangle, FaExclamationCircle } from "react-icons/fa";
+
+const ICONS = { 404: FaMapSigns, 500: FaExclamationTriangle };
 
 export default function ErrorIllustration({ code }) {
-  const getIcon = () => {
-    switch (code) {
-      case "403":
-        return "fa-solid fa-lock";
-      case "404":
-        return "fa-solid fa-map-signs";
-      case "500":
-        return "fa-solid fa-triangle-exclamation";
-      default:
-        return "fa-solid fa-circle-exclamation";
-    }
-  };
+  const reduce = useReducedMotion();
+  const Icon = ICONS[code] ?? FaExclamationCircle;
+
   return (
-    <motion.div
-      className="error-illustration"
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-      }}
-      transition={{
-        duration: 0.6,
-      }}
-    >
-      <motion.i
-        className={getIcon()}
-        animate={{
-          y: [0, -10, 0],
-          rotate: [0, -2, 2, 0],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        aria-hidden="true"
-      />
-      {code && <span>{code}</span>}
-    </motion.div>
+    <div className="error-illustration" aria-hidden="true">
+      <motion.span
+        className="error-illustration-icon"
+        animate={reduce ? undefined : { y: [0, -10, 0], rotate: [0, -2, 2, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <Icon focusable="false" />
+      </motion.span>
+    </div>
   );
 }
+
+ErrorIllustration.propTypes = {
+  code: PropTypes.string,
+};

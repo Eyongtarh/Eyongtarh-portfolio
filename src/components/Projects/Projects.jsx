@@ -1,49 +1,45 @@
+// Featured projects section with category filtering.
 import { useMemo, useState } from "react";
-import "./Projects.css";
-import useGithubRepos from "../../hooks/useGithubRepos";
+import Reveal from "../Reveal/Reveal";
 import ProjectCard from "./ProjectCard";
 import ProjectFilter from "./ProjectFilter";
-import LoadingSkeleton from "./LoadingSkeleton";
+import featuredProjects, { projectCategories } from "../../data/featuredProjects";
+import "./Projects.css";
+
 export default function Projects() {
-  const { projects, loading, error } = useGithubRepos();
   const [filter, setFilter] = useState("All");
-  const categories = useMemo(() => {
-    return [...new Set(projects.map((p) => p.category))];
-  }, [projects]);
-  const filtered = useMemo(() => {
-    if (filter === "All") {
-      return projects;
-    }
-    return projects.filter((p) => p.category === filter);
-  }, [projects, filter]);
+
+  const visible = useMemo(
+    () =>
+      filter === "All" ? featuredProjects : featuredProjects.filter((p) => p.category === filter),
+    [filter]
+  );
+
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects" aria-labelledby="projects-title">
       <div className="container">
-        <h2>Featured Projects</h2>
-        <p className="section-text">
-          A selection of my recent software development work hosted on GitHub.
+        <Reveal className="section-heading">
+          <span className="section-subtitle">Portfolio</span>
+          <h2 id="projects-title">Featured Projects</h2>
+          <p>A selection of my recent software development work, with live demos and source code.</p>
+        </Reveal>
+
+        {projectCategories.length > 1 && (
+          <ProjectFilter value={filter} onChange={setFilter} categories={projectCategories} />
+        )}
+
+        <p className="visually-hidden" aria-live="polite">
+          {`Showing ${visible.length} ${visible.length === 1 ? "project" : "projects"}`}
         </p>
-        {!loading && (
-          <ProjectFilter
-            current={filter}
-            setCurrent={setFilter}
-            categories={categories}
-          />
-        )}
-        {loading && (
-          <div className="projects-grid">
-            {[...Array(6)].map((_, i) => (
-              <LoadingSkeleton key={i} />
-            ))}
-          </div>
-        )}
-        {error && <p>{error}</p>}
-        {!loading && !error && (
-          <div className="projects-grid">
-            {filtered.map((project) => (
+
+        {visible.length > 0 ? (
+          <ul className="projects-grid reset-list">
+            {visible.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
-          </div>
+          </ul>
+        ) : (
+          <p className="projects-empty">No projects in this category yet.</p>
         )}
       </div>
     </section>

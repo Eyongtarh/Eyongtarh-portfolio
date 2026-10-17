@@ -1,21 +1,42 @@
 .scroll-progress {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto;
+  z-index: 1000;
   height: 4px;
-  z-index: 99999;
   pointer-events: none;
-  transform: translateZ(0);
-  will-change: transform;
 }
+
 .scroll-progress-bar {
+  width: 100%;
   height: 100%;
-  width: 0;
-  border-radius: 999px;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--progress, 0));
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   box-shadow:
     0 0 10px rgba(29, 78, 216, 0.45),
     0 0 20px rgba(6, 182, 212, 0.35);
-  transition: width 0.08s linear;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-bar {
+    animation: scroll-progress-grow linear both;
+    animation-timeline: scroll(root);
+  }
+
+  /* Scroll position, not time, drives this, so keep it under reduced motion too */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-progress-bar {
+      animation-duration: auto !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  @keyframes scroll-progress-grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
 }

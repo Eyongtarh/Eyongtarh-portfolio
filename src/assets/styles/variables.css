@@ -1,14 +1,28 @@
 :root {
+  color-scheme: dark;
+
+  /* Surfaces */
   --background: #0f172a;
   --surface: #1e293b;
-  --primary: #1d4ed8;
-  --secondary: #06b6d4;
+  --border: #334155;
+
+  /* Brand */
+  --primary: #1d4ed8; /* fills and borders only: 2.7:1 on the background */
+  --secondary: #06b6d4; /* accents and text: 6:1 on surfaces */
+  --secondary-strong: #0e7490; /* fills behind white text: 5.4:1 */
+
+  /* Text */
   --text: #f8fafc;
   --muted: #94a3b8;
-  --border: #334155;
+  --primary-text: #60a5fa; /* readable blue for text: 7:1 on the background */
+  --danger-text: #f87171; /* readable red for text: 5.3:1 on surfaces */
+
+  /* Status */
   --success: #22c55e;
   --warning: #f59e0b;
   --danger: #ef4444;
+
+  /* Effects */
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   --radius: 18px;
   --transition: 0.35s ease;

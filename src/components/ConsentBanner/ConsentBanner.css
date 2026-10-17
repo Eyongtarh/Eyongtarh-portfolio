@@ -1,0 +1,62 @@
+.consent-banner {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1500;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.97);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  animation: consent-rise 0.4s ease;
+}
+
+.consent-text {
+  flex: 1 1 320px;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.consent-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Equal size so declining is as easy as accepting */
+.consent-actions .btn {
+  min-width: 120px;
+  padding: 12px 22px;
+}
+
+@keyframes consent-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .consent-actions {
+    width: 100%;
+  }
+
+  .consent-actions .btn {
+    flex: 1;
+    min-width: 0;
+  }
+}

@@ -1,162 +1,115 @@
 .error-page {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100svh;
   padding: 2rem;
   overflow: hidden;
+  background-color: var(--background);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .error-overlay {
   position: absolute;
   inset: 0;
   background: rgba(15, 23, 42, 0.78);
-  backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
+
 .error-card {
   position: relative;
   z-index: 2;
-  width: min(700px, calc(100vw - 2rem));
+  width: min(700px, 100%);
   padding: 3.5rem;
   text-align: center;
   background: rgba(20, 25, 40, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
 }
-.error-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
-}
+
 .error-code {
-  display: block;
   margin-bottom: 0.5rem;
+  color: var(--primary-text);
   font-size: clamp(4rem, 12vw, 8rem);
   font-weight: 800;
-  color: var(--primary);
+  line-height: 1;
 }
+
 .error-card h1 {
   margin-bottom: 1rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: #fff;
+  font-size: clamp(1.75rem, 4vw, 3rem);
 }
-.error-card p {
+
+.error-message {
   max-width: 55ch;
-  margin-inline: auto;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.05rem;
   line-height: 1.8;
 }
+
 .error-buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-.error-buttons .btn,
-.error-buttons .secondary-btn {
+
+.error-buttons .btn {
   min-width: 170px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
-.error-buttons .btn:hover,
-.error-buttons .secondary-btn:hover {
-  transform: translateY(-3px);
-}
-.error-buttons button {
-  border: none;
-  background: none;
-  font: inherit;
-  cursor: pointer;
-}
-.error-buttons button:focus-visible,
-.error-buttons a:focus-visible {
-  outline: 3px solid var(--primary);
-  outline-offset: 4px;
-}
+
 .error-illustration {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   margin-bottom: 2rem;
 }
-.error-illustration i {
-  margin-bottom: 1rem;
+
+.error-illustration-icon {
+  display: inline-flex;
+  color: var(--primary-text);
   font-size: 5rem;
-  color: var(--primary);
-  text-shadow: 0 0 25px rgba(59, 130, 246, 0.35);
+  filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.35));
 }
-.error-illustration span {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.4rem;
-  color: rgba(255, 255, 255, 0.6);
-}
+
 @media (max-width: 768px) {
   .error-page {
     padding: 1.5rem;
   }
+
   .error-card {
-    width: 100%;
     padding: 2rem;
   }
-  .error-code {
-    font-size: clamp(3rem, 16vw, 5rem);
-  }
-  .error-card h1 {
-    font-size: 2rem;
-  }
-  .error-card p {
-    font-size: 1rem;
-  }
+
   .error-buttons {
     flex-direction: column;
   }
-  .error-buttons .btn,
-  .error-buttons .secondary-btn,
-  .error-buttons button {
+
+  .error-buttons .btn {
     width: 100%;
   }
-  .error-illustration i {
+
+  .error-illustration-icon {
     font-size: 4rem;
   }
 }
+
 @media (max-width: 480px) {
   .error-card {
     padding: 1.75rem;
   }
-  .error-card h1 {
-    font-size: 1.75rem;
-  }
-  .error-card p {
-    line-height: 1.7;
-  }
-  .error-illustration i {
+
+  .error-illustration-icon {
     font-size: 3.5rem;
-  }
-  .error-illustration span {
-    letter-spacing: 0.25rem;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .error-card,
-  .error-buttons .btn,
-  .error-buttons .secondary-btn,
-  .error-illustration i {
-    animation: none !important;
-    transition: none !important;
   }
 }

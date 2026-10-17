@@ -1,5 +1,9 @@
-// Main application component
+// Main application component.
 import { lazy, Suspense } from "react";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
+import CursorGlow from "./components/CursorGlow/CursorGlow";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
@@ -8,47 +12,53 @@ import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import Interests from "./components/Interests/Interests";
 import Footer from "./components/Footer/Footer";
-import LoadingSkeleton from "./components/Projects/LoadingSkeleton";
+import LoadingSkeleton from "./components/LoadingSkeleton/LoadingSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
-import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
-import AnimatedBackground from "./components/AnimatedBackground/AnimatedBackground";
-import CursorGlow from "./components/CursorGlow/CursorGlow";
-import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
-import useLoading from "./hooks/useLoading";
+import SectionError from "./components/SectionError/SectionError";
+import ConsentBanner from "./components/ConsentBanner/ConsentBanner";
+import usePageReady from "./hooks/usePageReady";
 
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Contact = lazy(() => import("./components/Contact/Contact"));
 
-function App() {
-  const loading = useLoading();
+export default function App() {
+  const ready = usePageReady();
+
   return (
     <>
+      <LoadingScreen isLoading={!ready} />
       <AnimatedBackground />
       <CursorGlow />
       <ScrollProgress />
-      <LoadingScreen isLoading={loading} />
       <Navbar />
-      <main>
-        <Hero />
+      <main id="main" tabIndex={-1}>
+        <Hero ready={ready} />
         <About />
         <Skills />
         <Experience />
         <Education />
-        <ErrorBoundary>
-          <Suspense fallback={<LoadingSkeleton />}>
+        <ErrorBoundary fallback={SectionError}>
+          <Suspense
+            fallback={
+              <LoadingSkeleton label="Loading projects" minHeight={900} />
+            }
+          >
             <Projects />
           </Suspense>
         </ErrorBoundary>
         <Interests />
-        <ErrorBoundary>
-          <Suspense fallback={<LoadingSkeleton />}>
+        <ErrorBoundary fallback={SectionError}>
+          <Suspense
+            fallback={
+              <LoadingSkeleton label="Loading contact form" minHeight={700} />
+            }
+          >
             <Contact />
           </Suspense>
         </ErrorBoundary>
       </main>
       <Footer />
+      <ConsentBanner />
     </>
   );
 }
-
-export default App;

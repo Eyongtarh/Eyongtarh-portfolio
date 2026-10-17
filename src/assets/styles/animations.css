@@ -1,7 +1,13 @@
+/* Utility animations. Reduced motion is handled globally in reset.css. */
 .fade-up {
-  animation: fadeUp 1s ease forwards;
+  animation: util-fade-up 1s ease forwards;
 }
-@keyframes fadeUp {
+
+.float {
+  animation: util-float 5s ease-in-out infinite;
+}
+
+@keyframes util-fade-up {
   from {
     opacity: 0;
     transform: translateY(60px);
@@ -11,17 +17,13 @@
     transform: translateY(0);
   }
 }
-.float {
-  animation: float 5s ease-in-out infinite;
-}
-@keyframes float {
-  0% {
+
+@keyframes util-float {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-12px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }

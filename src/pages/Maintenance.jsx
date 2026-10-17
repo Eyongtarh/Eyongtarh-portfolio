@@ -1,22 +1,18 @@
-// Displays the custom maintenance page while the portfolio is temporarily unavailable.
+// Shown instead of the site when VITE_MAINTENANCE is "true".
 import ErrorLayout from "../components/ErrorLayout";
+import { CONTACT_EMAIL, socialLinks } from "../data/site";
 import background from "../assets/errors/maintenance.png";
+
+const linkedIn = socialLinks.find((link) => link.label === "LinkedIn");
 
 export default function Maintenance() {
   return (
     <ErrorLayout
-      title="Portfolio Under Maintenance"
-      message="I'm currently improving this portfolio with new projects, features, and performance enhancements. Thank you for your patience—I'll be back online shortly."
+      title="Portfolio under maintenance"
+      message="I'm adding new projects and improvements, and the site will be back shortly. In the meantime, you're welcome to get in touch."
       background={background}
-      primaryButton={{
-        label: "Go Home",
-        href: "/",
-      }}
-      secondaryButton={{
-        label: "View LinkedIn",
-        href: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/",
-        external: true,
-      }}
+      primaryButton={{ label: "Email me", href: `mailto:${CONTACT_EMAIL}` }}
+      secondaryButton={linkedIn && { label: "View LinkedIn", href: linkedIn.url, external: true }}
     />
   );
 }

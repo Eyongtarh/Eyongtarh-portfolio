@@ -1,35 +1,41 @@
-// Renders a scroll progress bar that updates based on the user's position on the page.
-import { useEffect, useState } from "react";
+// Reading progress bar. Uses a CSS scroll timeline where the browser supports it,
+// otherwise updates a CSS variable at most once per frame without React renders.
+import { useEffect, useRef } from "react";
 import "./ScrollProgress.css";
 
 export default function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef(null);
+
   useEffect(() => {
-    const updateProgress = () => {
-      const scrollTop = window.scrollY;
-      const documentHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const percentage =
-        documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
-      setProgress(percentage);
+    if (typeof CSS !== "undefined" && CSS.supports?.("animation-timeline: scroll()")) {
+      return undefined;
+    }
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const { scrollHeight, clientHeight } = document.documentElement;
+      const max = scrollHeight - clientHeight;
+      const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      barRef.current?.style.setProperty("--progress", progress.toFixed(4));
     };
-    updateProgress();
-    window.addEventListener("scroll", updateProgress);
-    window.addEventListener("resize", updateProgress);
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     return () => {
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
     };
   }, []);
+
   return (
-    <div className="scroll-progress">
-      <div
-        className="scroll-progress-bar"
-        style={{
-          width: `${progress}%`,
-        }}
-      />
+    <div className="scroll-progress" aria-hidden="true">
+      <div ref={barRef} className="scroll-progress-bar" />
     </div>
   );
 }

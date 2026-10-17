@@ -1,16 +1,12 @@
-// Renders the animated background effects used throughout the application.
+// Decorative animated background layers, hidden from assistive technology.
 import "./AnimatedBackground.css";
 
-function AnimatedBackground() {
+export default function AnimatedBackground() {
   return (
-    <>
-      <div className="background-glow"></div>
-
-      <div className="background-grid"></div>
-
-      <div className="background-noise"></div>
-    </>
+    <div className="animated-background" aria-hidden="true">
+      <div className="background-glow" />
+      <div className="background-grid" />
+      <div className="background-noise" />
+    </div>
   );
 }
-
-export default AnimatedBackground;

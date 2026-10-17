@@ -1,241 +1,186 @@
-/* Contact Section */
-.contact {
-  padding: 120px 8%;
-
-  background: var(--background);
-}
-.contact .section-heading {
-  max-width: 720px;
-  margin: 0 auto 70px;
-  text-align: center;
-}
-.contact .section-subtitle {
-  display: inline-block;
-  margin-bottom: 15px;
-  color: var(--secondary);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.contact .section-heading h2 {
-  margin-bottom: 20px;
-}
-.contact .section-heading p {
-  color: var(--muted);
-  line-height: 1.8;
-}
-/* Layout */
 .contact-content {
   display: grid;
   grid-template-columns: 380px 1fr;
-  gap: 40px;
   align-items: start;
+  gap: 40px;
 }
-/* Shared Premium Cards */
-.contact-info,
-.contact-form-wrapper {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-.contact-info:hover,
-.contact-form-wrapper:hover {
-  border-color: var(--primary);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-}
-/* Animated Gradient Border */
-.contact-info::before,
-.contact-form-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    transparent,
-    var(--primary),
-    transparent,
-    var(--secondary)
-  );
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-/* Contact Information */
-.contact-info {
-  padding: 40px;
-}
+
+/* Contact information */
 .contact-info h3 {
   margin-bottom: 20px;
 }
-.contact-info > p {
+
+.contact-intro {
   margin-bottom: 35px;
-  color: var(--muted);
   line-height: 1.8;
 }
-/* Contact List */
+
 .contact-list {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
+
 .contact-item {
   display: flex;
   align-items: flex-start;
   gap: 18px;
 }
-/* Icon */
+
 .contact-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 58px;
   height: 58px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
   border-radius: 16px;
   background: rgba(29, 78, 216, 0.12);
   border: 1px solid rgba(59, 130, 246, 0.2);
-  color: var(--primary);
-  font-size: 1.25rem;
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     box-shadow 0.25s ease;
 }
+
 .contact-item:hover .contact-icon {
   transform: translateY(-4px);
   background: rgba(6, 182, 212, 0.16);
   box-shadow: 0 10px 25px rgba(6, 182, 212, 0.25);
 }
-/* Contact Text */
-.contact-item h4 {
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.contact-label {
   margin-bottom: 6px;
+  color: var(--text);
+  font-weight: 700;
 }
-.contact-item a,
-.contact-item span {
+
+.contact-text a {
   color: var(--muted);
-  text-decoration: none;
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  overflow-wrap: anywhere;
+  transition: color 0.25s ease;
 }
-.contact-item a:hover {
+
+.contact-text a:hover {
   color: var(--secondary);
 }
-/* Social Links */
+
+/* Social links */
 .social-links {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 40px;
 }
+
 .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 14px;
   background: var(--background);
   border: 1px solid var(--border);
   color: var(--text);
-  text-decoration: none;
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
+
 .social-links a:hover {
   transform: translateY(-4px) scale(1.05);
   background: rgba(29, 78, 216, 0.15);
-  border-color: var(--primary);
-  color: white;
+  border-color: var(--primary-text);
   box-shadow: 0 12px 28px rgba(29, 78, 216, 0.3);
 }
-/* Contact Form */
-.contact-form-wrapper {
-  padding: 40px;
-}
+
+/* Form */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
-/* Form Groups */
+
 .form-group {
   display: flex;
   flex-direction: column;
 }
+
 .form-group label {
   margin-bottom: 10px;
-  font-weight: 600;
   color: var(--text);
+  font-weight: 600;
 }
-/* Inputs & Textarea */
+
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 16px 18px;
-  background: var(--background);
   border: 1px solid var(--border);
   border-radius: 14px;
+  background: var(--background);
   color: var(--text);
   font-size: 1rem;
-  font-family: inherit;
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease,
-    transform 0.25s ease,
     background 0.25s ease;
-  resize: vertical;
 }
+
 .form-group textarea {
   min-height: 180px;
+  resize: vertical;
 }
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: var(--muted);
+  opacity: 0.8;
 }
-/* Input Hover */
+
 .form-group input:hover,
 .form-group textarea:hover {
-  border-color: rgba(59, 130, 246, 0.35);
+  border-color: rgba(96, 165, 250, 0.45);
 }
-/* Input Focus */
-.form-group input:focus,
-.form-group textarea:focus {
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
   outline: none;
-  border-color: var(--primary);
+  border-color: var(--primary-text);
   background: rgba(59, 130, 246, 0.03);
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 4px rgba(59, 130, 246, 0.12),
-    0 12px 28px rgba(59, 130, 246, 0.08);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
 }
-/* Validation */
+
+.form-group [aria-invalid="true"] {
+  border-color: var(--danger-text);
+}
+
 .error-text {
   margin-top: 8px;
-  color: #ef4444;
+  color: var(--danger-text);
   font-size: 0.9rem;
   font-weight: 500;
 }
-/* Submit Button */
+
+/* Honeypot: off screen for people, still in the DOM for bots */
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Submit */
 .submit-btn {
   align-self: flex-start;
   display: inline-flex;
@@ -246,97 +191,103 @@
   border: none;
   border-radius: 999px;
   background: var(--primary);
-  color: white;
+  color: #fff;
   font-size: 1rem;
   font-weight: 600;
-  cursor: pointer;
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     box-shadow 0.25s ease;
 }
+
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-3px);
-  background: var(--secondary);
+  background: var(--secondary-strong);
   box-shadow: 0 12px 28px rgba(6, 182, 212, 0.3);
 }
+
 .submit-btn:active:not(:disabled) {
   transform: translateY(0);
 }
+
 .submit-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-.submit-btn i {
-  font-size: 1rem;
+
+.spin {
+  animation: contact-spin 1s linear infinite;
 }
-/* Status Messages */
+
+@keyframes contact-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Status */
 .form-status {
-  margin-top: 8px;
   padding: 16px 18px;
   border-radius: 14px;
   font-weight: 500;
   line-height: 1.6;
 }
+
 .form-status.success {
   background: rgba(34, 197, 94, 0.12);
   border: 1px solid rgba(34, 197, 94, 0.3);
-  color: #22c55e;
+  color: #4ade80;
 }
+
 .form-status.error {
   background: rgba(239, 68, 68, 0.12);
   border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #ef4444;
+  color: var(--danger-text);
 }
+
 /* Responsive */
 @media (max-width: 992px) {
-  .contact {
-    padding: 110px 6%;
-  }
   .contact-content {
     grid-template-columns: 1fr;
-
     gap: 35px;
   }
 }
+
 @media (max-width: 768px) {
-  .contact {
-    padding: 100px 5%;
-  }
   .contact-info,
   .contact-form-wrapper {
-    padding: 30px;
+    --card-padding: 30px;
   }
+
   .submit-btn {
     width: 100%;
   }
 }
+
 @media (max-width: 600px) {
-  .contact .section-heading {
-    margin-bottom: 50px;
-  }
   .contact-info,
   .contact-form-wrapper {
-    padding: 25px;
+    --card-padding: 25px;
+    --card-padding-sm: 25px;
   }
+
   .form-group input,
   .form-group textarea {
     padding: 15px 16px;
   }
 }
+
 @media (max-width: 480px) {
   .social-links {
     justify-content: center;
   }
+
   .contact-item {
     gap: 14px;
   }
+
   .contact-icon {
     width: 50px;
     height: 50px;
-    font-size: 1.1rem;
-  }
-  .submit-btn {
-    padding: 15px 24px;
   }
 }

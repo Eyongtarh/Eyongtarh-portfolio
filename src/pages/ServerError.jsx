@@ -1,22 +1,25 @@
-// Displays the custom 500 Internal Server Error page when an unexpected application error occurs.
+// Full page fallback for unexpected application errors.
+import PropTypes from "prop-types";
 import ErrorLayout from "../components/ErrorLayout";
 import background from "../assets/errors/error.png";
 
-export default function ServerError({ onReload, onHome }) {
+export default function ServerError({
+  onReload = () => window.location.reload(),
+  onHome = () => window.location.assign("/"),
+}) {
   return (
     <ErrorLayout
       code="500"
-      title="Something Went Wrong"
+      title="Something went wrong"
       message="An unexpected error occurred while loading this page. Please try again or return to the homepage."
       background={background}
-      primaryButton={{
-        label: "Reload Page",
-        onClick: onReload,
-      }}
-      secondaryButton={{
-        label: "Back Home",
-        onClick: onHome,
-      }}
+      primaryButton={{ label: "Reload page", onClick: onReload }}
+      secondaryButton={{ label: "Back to home", onClick: onHome }}
     />
   );
 }
+
+ServerError.propTypes = {
+  onReload: PropTypes.func,
+  onHome: PropTypes.func,
+};

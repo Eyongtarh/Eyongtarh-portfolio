@@ -1,14 +1,14 @@
-// Renders the About section with animated cards highlighting professional background, skills, and experience.
-import { motion } from "framer-motion";
+// About section with cards highlighting background, skills and experience.
 import { FaCode, FaLightbulb, FaUsers } from "react-icons/fa";
+import Reveal from "../Reveal/Reveal";
 import "./About.css";
 
 const cards = [
   {
     icon: FaCode,
-    color: "#3B82F6",
+    color: "#60A5FA",
     title: "Full Stack Development",
-    text: "I build scalable, secure, and high-performance web applications using React, Django, REST APIs, and PostgreSQL. My focus is on clean architecture, maintainable code, responsive design, and delivering exceptional user experiences.",
+    text: "I build scalable, secure and high performance web applications using React, Django, REST APIs and PostgreSQL. My focus is on clean architecture, maintainable code, responsive design and excellent user experiences.",
   },
   {
     icon: FaLightbulb,
@@ -18,72 +18,42 @@ const cards = [
   },
   {
     icon: FaUsers,
-    color: "#10B981",
+    color: "#34D399",
     title: "Business Experience",
-    text: "My background in consulting, entrepreneurship, logistics, and business management enables me to bridge the gap between technology and business strategy, delivering software that creates real value for organisations.",
+    text: "My background in consulting, entrepreneurship, logistics and business management helps me bridge technology and business strategy, delivering software that creates real value for organisations.",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about" aria-labelledby="about-title">
       <div className="container">
-        <motion.div
-          className="section-heading"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
+        <Reveal className="section-heading about-heading">
           <span className="section-subtitle">Who I Am</span>
-          <h2>About Me</h2>
-          <p className="about-intro">
-            I'm a Full Stack Software Developer passionate about building
-            modern, scalable, and user-friendly web applications. By combining
-            software engineering expertise with years of consulting and business
-            experience, I create solutions that are technically robust,
-            performance driven, and aligned with real business goals. I enjoy
-            solving challenging problems, learning emerging technologies, and
-            developing applications that deliver meaningful value to users and
-            organisations.
+          <h2 id="about-title">About Me</h2>
+          <p>
+            I&apos;m a Full Stack Software Developer passionate about building modern, scalable and
+            user friendly web applications. By combining software engineering expertise with years
+            of consulting and business experience, I create solutions that are technically robust,
+            performance driven and aligned with real business goals. I enjoy solving challenging
+            problems, learning emerging technologies and developing applications that deliver
+            meaningful value to users and organisations.
           </p>
-        </motion.div>
-        <div className="about-grid">
-          {cards.map((card, index) => {
-            const Icon = card.icon;
-            return (
-              <motion.article
-                key={card.title}
-                className="about-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{
-                  y: -8,
-                  transition: { duration: 0.25 },
-                }}
-                transition={{
-                  delay: index * 0.15,
-                  duration: 0.6,
-                }}
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                <div className="about-icon">
-                  <Icon
-                    size={36}
-                    style={{
-                      color: card.color,
-                    }}
-                    aria-hidden="true"
-                    role="presentation"
-                    focusable="false"
-                  />
+        </Reveal>
+
+        <ul className="about-grid reset-list">
+          {cards.map(({ icon: Icon, color, title, text }, index) => (
+            <Reveal as="li" key={title} delay={index * 0.15} y={50}>
+              <article className="card about-card">
+                <div className="card-icon" aria-hidden="true">
+                  <Icon size={34} style={{ color }} focusable="false" />
                 </div>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
-              </motion.article>
-            );
-          })}
-        </div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );

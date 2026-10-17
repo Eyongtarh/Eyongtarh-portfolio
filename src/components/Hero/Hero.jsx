@@ -1,213 +1,119 @@
-// Renders the hero section with animated introductions, social links, call-to-action buttons, and a background video.
-import { LazyMotion, domAnimation, m } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedinIn,
-  FaEnvelope,
-  FaArrowRight,
-  FaCode,
-  FaDownload,
-} from "react-icons/fa";
+// Hero section. Entrance animations wait for `ready`, so they play after the
+// loading screen fades instead of finishing unseen behind it.
+import PropTypes from "prop-types";
+import { motion, useReducedMotion } from "framer-motion";
+import { FaArrowRight, FaCode, FaDownload } from "react-icons/fa";
+import SocialLinks from "../SocialLinks/SocialLinks";
+import { CV_URL, CV_FILENAME, SITE_NAME } from "../../data/site";
 import backgroundVideo from "../../assets/videos/blue.mp4";
 import "./Hero.css";
 
-const socialLinks = [
-  {
-    icon: FaGithub,
-    color: "#ffffff",
-    url: "https://github.com/Eyongtarh",
-    label: "GitHub",
-  },
-  {
-    icon: FaLinkedinIn,
-    color: "#0A66C2",
-    url: "https://www.linkedin.com/in/a-eyongtarh-besong-22ab9b281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BB4C9QtntQn2cFJU2nmfRNQ%3D%3D",
-    label: "LinkedIn",
-  },
-  {
-    icon: FaEnvelope,
-    color: "#ffffff",
-    url: "mailto:eyongtarhb@gmail.com",
-    label: "Email",
-  },
-];
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+};
 
-export default function Hero() {
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+export default function Hero({ ready = true }) {
+  const reduce = useReducedMotion();
+  const visible = ready || reduce;
+  const [firstName, lastName] = SITE_NAME.split(" ");
+
   return (
-    <LazyMotion features={domAnimation}>
-      <section className="hero" id="home">
+    <section className="hero" id="home" aria-labelledby="hero-title">
+      {!reduce && (
         <video
           className="hero-video"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
           tabIndex={-1}
+          disablePictureInPicture
         >
           <source src={backgroundVideo} type="video/mp4" />
-          <track
-            kind="captions"
-            src="/captions/empty.vtt"
-            srcLang="en"
-            label="English"
-            default
-          />
         </video>
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <m.a
-            href="#contact"
-            className="hero-badge"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            whileHover={{
-              scale: 1.03,
-              y: -2,
-            }}
-            whileTap={{
-              scale: 0.98,
-            }}
-          >
-            <span className="badge-dot"></span>
-            Available for opportunities
-            <FaArrowRight
-              size={14}
-              style={{ marginLeft: "8px" }}
-              aria-hidden="true"
-            />
-          </m.a>
-          <m.p
-            className="hero-greeting"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-          >
-            Hello, I'm
-          </m.p>
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-          >
-            <span>Eyongtarh</span>
-            <span>Besong</span>
-          </m.h1>
-          <m.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.7 }}
-          >
-            Full Stack Software Developer
-          </m.h2>
-          <m.p
-            className="hero-description"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.7 }}
-          >
-            I design and build scalable, user focused web applications using
-            <strong> React</strong>, <strong>Django</strong>,
-            <strong> Python</strong>, <strong>PostgreSQL</strong>, and
-            <strong> JavaScript</strong>, transforming ideas into secure,
-            high-performance solutions through cloud deployment, API
-            integration, database design, and automation.
-          </m.p>
-          <m.div
-            className="hero-buttons"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.7 }}
-          >
-            <a href="#projects" className="btn secondary-btn">
-              <FaCode
-                size={16}
-                style={{ marginRight: "8px" }}
-                aria-hidden="true"
-              />
-              View Projects
-            </a>
-            <a
-              href="/cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn secondary-btn"
-            >
-              <FaDownload
-                size={16}
-                style={{ marginRight: "8px" }}
-                aria-hidden="true"
-              />
-              Download CV
-            </a>
-          </m.div>
-          <m.div
-            className="hero-social"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.7 }}
-          >
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                >
-                  <Icon
-                    size={22}
-                    style={{ color: social.color }}
-                    aria-hidden="true"
-                    role="presentation"
-                    focusable="false"
-                  />
-                </a>
-              );
-            })}
-          </m.div>
+      )}
+      <div className="hero-overlay" aria-hidden="true" />
+
+      <motion.div
+        className="hero-content"
+        variants={container}
+        initial={reduce ? false : "hidden"}
+        animate={visible ? "show" : "hidden"}
+      >
+        <motion.a variants={item} href="#contact" className="hero-badge">
+          <span className="badge-dot" aria-hidden="true" />
+          Available for opportunities
+          <FaArrowRight aria-hidden="true" focusable="false" />
+        </motion.a>
+
+        <motion.p variants={item} className="hero-greeting">
+          Hello, I&apos;m
+        </motion.p>
+
+        <motion.h1 variants={item} id="hero-title">
+          <span>{firstName}</span> <span>{lastName}</span>
+        </motion.h1>
+
+        <motion.p variants={item} className="hero-role">
+          Full Stack Software Developer
+        </motion.p>
+
+        <motion.p variants={item} className="hero-description">
+          I design and build scalable, user focused web applications using <strong>React</strong>,{" "}
+          <strong>Django</strong>, <strong>Python</strong>, <strong>PostgreSQL</strong> and{" "}
+          <strong>JavaScript</strong>, turning ideas into secure, high performance solutions
+          through cloud deployment, API integration, database design and automation.
+        </motion.p>
+
+        <motion.div variants={item} className="hero-buttons">
+          <a href="#projects" className="btn">
+            <FaCode aria-hidden="true" focusable="false" />
+            View projects
+          </a>
+          <a href={CV_URL} download={CV_FILENAME} className="btn secondary-btn">
+            <FaDownload aria-hidden="true" focusable="false" />
+            Download CV
+          </a>
+        </motion.div>
+
+        <motion.div variants={item}>
+          <SocialLinks className="hero-social" />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        className="hero-image-wrapper"
+        initial={reduce ? false : { opacity: 0, scale: 0.92 }}
+        animate={visible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className={`hero-image${reduce ? "" : " is-floating"}`}>
+          <img
+            src="/profile.webp"
+            alt={`Portrait of ${SITE_NAME}`}
+            width="430"
+            height="392"
+            fetchPriority="high"
+            decoding="async"
+          />
         </div>
-        <m.div
-          className="hero-image-wrapper"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <m.div
-            className="hero-image"
-            animate={{ y: [0, -15, 0] }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <img
-              src="/profile.webp"
-              alt="Eyongtarh Besong"
-              width="430"
-              height="392"
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </m.div>
-        </m.div>
-        <m.a
-          href="#about"
-          className="scroll-indicator"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-          aria-label="Scroll to About section"
-        >
-          <span></span>
-        </m.a>
-      </section>
-    </LazyMotion>
+      </motion.div>
+
+      <a href="#about" className="scroll-indicator" aria-label="Scroll to the About section">
+        <span aria-hidden="true" />
+      </a>
+    </section>
   );
 }
+
+Hero.propTypes = {
+  ready: PropTypes.bool,
+};

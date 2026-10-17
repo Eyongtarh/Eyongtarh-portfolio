@@ -1,28 +1,21 @@
-// Renders the contact section with contact information and a contact form.
-import { motion } from "framer-motion";
-import "./Contact.css";
+// Contact section with contact details and the contact form.
+import Reveal from "../Reveal/Reveal";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
+import "./Contact.css";
 
 export default function Contact() {
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact" aria-labelledby="contact-title">
       <div className="container">
-        <motion.div
-          className="section-heading"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+        <Reveal className="section-heading" y={30} duration={0.5}>
           <span className="section-subtitle">Get In Touch</span>
-          <h2>Let's Work Together</h2>
+          <h2 id="contact-title">Let&apos;s Work Together</h2>
           <p>
-            Whether you're looking for a Full Stack Developer, need help
-            building a web application, or simply want to connect, I'd love to
-            hear from you.
+            Whether you&apos;re looking for a Full Stack Developer, need help building a web
+            application, or simply want to connect, I&apos;d love to hear from you.
           </p>
-        </motion.div>
+        </Reveal>
         <div className="contact-content">
           <ContactInfo />
           <ContactForm />

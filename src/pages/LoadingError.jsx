@@ -1,7 +1,7 @@
 // Shown when part of the site fails to download, usually just after a new deployment.
 import PropTypes from "prop-types";
 import ErrorLayout from "../components/ErrorLayout";
-import background from "../assets/errors/loading-error.png";
+import background from "../assets/errors/loading-error.webp";
 
 export default function LoadingError({ onRetry = () => window.location.reload() }) {
   return (

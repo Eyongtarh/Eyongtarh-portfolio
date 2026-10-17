@@ -1,6 +1,6 @@
 // Custom 404 page. Built as 404.html, which Vercel serves with a real 404 status.
 import ErrorLayout from "../components/ErrorLayout";
-import background from "../assets/errors/404.png";
+import background from "../assets/errors/404.webp";
 
 export default function NotFound() {
   return (

@@ -1,7 +1,7 @@
 // Full page fallback for unexpected application errors.
 import PropTypes from "prop-types";
 import ErrorLayout from "../components/ErrorLayout";
-import background from "../assets/errors/error.png";
+import background from "../assets/errors/error.webp";
 
 export default function ServerError({
   onReload = () => window.location.reload(),

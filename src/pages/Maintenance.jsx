@@ -1,7 +1,7 @@
 // Shown instead of the site when VITE_MAINTENANCE is "true".
 import ErrorLayout from "../components/ErrorLayout";
 import { CONTACT_EMAIL, socialLinks } from "../data/site";
-import background from "../assets/errors/maintenance.png";
+import background from "../assets/errors/maintenance.webp";
 
 const linkedIn = socialLinks.find((link) => link.label === "LinkedIn");
 

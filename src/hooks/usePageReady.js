@@ -1,9 +1,16 @@
-// Resolves once the page has loaded and fonts are ready, shown for at least
-// minDuration so the loader never flashes, and never longer than maxDuration
-// so a slow asset can't trap visitors behind the overlay.
+// Decides when the loading screen can fade. By default it waits only for the web
+// font, so the first view never shifts when the font swaps in. It deliberately does
+// not wait for the window "load" event: that waits for every image and media file,
+// which on a phone held the content back by seconds and hurt Largest Contentful Paint.
+// minDuration stops the loader flashing; maxDuration means a slow font can never
+// trap visitors behind the overlay.
 import { useEffect, useState } from "react";
 
-export default function usePageReady({ minDuration = 600, maxDuration = 4000 } = {}) {
+export default function usePageReady({
+  minDuration = 300,
+  maxDuration = 1500,
+  waitForLoad = false,
+} = {}) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -15,7 +22,7 @@ export default function usePageReady({ minDuration = 600, maxDuration = 4000 } =
       });
 
     const pageLoaded =
-      document.readyState === "complete"
+      !waitForLoad || document.readyState === "complete"
         ? Promise.resolve()
         : new Promise((resolve) => window.addEventListener("load", resolve, { once: true }));
 
@@ -31,7 +38,7 @@ export default function usePageReady({ minDuration = 600, maxDuration = 4000 } =
       cancelled = true;
       timers.forEach(clearTimeout);
     };
-  }, [minDuration, maxDuration]);
+  }, [minDuration, maxDuration, waitForLoad]);
 
   return ready;
 }

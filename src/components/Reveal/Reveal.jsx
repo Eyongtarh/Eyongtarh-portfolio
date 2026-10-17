@@ -1,16 +1,16 @@
 // Fades content in as it scrolls into view. Wrap cards in this instead of
 // animating the card itself, so Framer's inline transform never blocks CSS hover effects.
 import PropTypes from "prop-types";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 const TAGS = {
-  div: motion.div,
-  li: motion.li,
-  ul: motion.ul,
-  article: motion.article,
-  aside: motion.aside,
-  h2: motion.h2,
-  p: motion.p,
+  div: m.div,
+  li: m.li,
+  ul: m.ul,
+  article: m.article,
+  aside: m.aside,
+  h2: m.h2,
+  p: m.p,
 };
 
 export default function Reveal({
@@ -23,7 +23,7 @@ export default function Reveal({
   ...rest
 }) {
   const reduce = useReducedMotion();
-  const Tag = TAGS[as] ?? motion.div;
+  const Tag = TAGS[as] ?? m.div;
 
   return (
     <Tag

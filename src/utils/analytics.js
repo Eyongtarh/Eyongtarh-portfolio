@@ -9,6 +9,19 @@ export const CONSENT_OPEN_EVENT = "consent:open";
 
 let loaded = false;
 
+// Runs a task once the page has finished loading and the browser is idle, so a
+// returning visitor's analytics script never competes with the page's own
+// script, styles and font. Commands sent to gtag before then wait in dataLayer
+// and are sent when the script arrives, so no page view is lost.
+function whenIdle(task) {
+  const schedule = () =>
+    "requestIdleCallback" in window
+      ? window.requestIdleCallback(task, { timeout: 3000 })
+      : setTimeout(task, 1500);
+  if (document.readyState === "complete") task();
+  else window.addEventListener("load", schedule, { once: true });
+}
+
 const gaId = () => (GA_ID_PATTERN.test(config.gaId) ? config.gaId : null);
 
 export const analyticsEnabled = () => gaId() !== null;
@@ -47,10 +60,12 @@ export function loadAnalytics() {
   window.gtag("js", new Date());
   window.gtag("config", id);
 
-  const script = document.createElement("script");
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
-  document.head.append(script);
+  whenIdle(() => {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+    document.head.append(script);
+  });
 
   loaded = true;
   return true;

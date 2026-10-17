@@ -1,6 +1,6 @@
 // Reusable layout for full page error screens with configurable content and actions.
 import PropTypes from "prop-types";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import ErrorIllustration from "./ErrorIllustration";
 import useDocumentMeta from "../hooks/useDocumentMeta";
 import { SITE_NAME } from "../data/site";
@@ -52,7 +52,7 @@ export default function ErrorLayout({
       aria-labelledby="error-title"
     >
       <div className="error-overlay" aria-hidden="true" />
-      <motion.div
+      <m.div
         className="error-card"
         initial={reduce ? false : { opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -71,7 +71,7 @@ export default function ErrorLayout({
           {renderButton(secondaryButton, true)}
           {children}
         </div>
-      </motion.div>
+      </m.div>
     </main>
   );
 }

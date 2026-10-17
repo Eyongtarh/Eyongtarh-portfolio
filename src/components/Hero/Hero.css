@@ -23,6 +23,14 @@
   object-fit: cover;
   pointer-events: none;
   transform: scale(1.02);
+  /* Mounted after the page is ready, so fade it in rather than letting it pop */
+  animation: hero-video-in 1.2s ease both;
+}
+
+@keyframes hero-video-in {
+  from {
+    opacity: 0;
+  }
 }
 
 .hero-overlay {

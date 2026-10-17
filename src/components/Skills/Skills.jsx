@@ -1,6 +1,6 @@
 // Skills section with grouped technology badges.
 import PropTypes from "prop-types";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import Reveal from "../Reveal/Reveal";
 import skills from "../../data/skills";
 import "./Skills.css";
@@ -23,7 +23,7 @@ function SkillGroup({ title, items }) {
     <Reveal as="li" className="skill-group-item">
       <div className="card card--static skill-group" role="group" aria-labelledby={headingId}>
         <h3 id={headingId}>{title}</h3>
-        <motion.ul
+        <m.ul
           className="badge-container reset-list"
           variants={listVariants}
           initial={reduce ? false : "hidden"}
@@ -31,12 +31,12 @@ function SkillGroup({ title, items }) {
           viewport={{ once: true, amount: 0.2 }}
         >
           {items.map(({ name, icon: Icon, color }) => (
-            <motion.li key={name} className="skill-badge" variants={badgeVariants}>
+            <m.li key={name} className="skill-badge" variants={badgeVariants}>
               {Icon && <Icon size={20} style={{ color }} aria-hidden="true" focusable="false" />}
               <span>{name}</span>
-            </motion.li>
+            </m.li>
           ))}
-        </motion.ul>
+        </m.ul>
       </div>
     </Reveal>
   );

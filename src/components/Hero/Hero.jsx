@@ -1,11 +1,21 @@
 // Hero section. Entrance animations wait for `ready`, so they play after the
 // loading screen fades instead of finishing unseen behind it.
+//
+// Performance: the heading, description and portrait are the Largest Contentful
+// Paint candidates, so they are painted fully opaque from the first frame and only
+// slide into place. Browsers ignore elements at opacity 0 for LCP, so fading these
+// in would push LCP back by the length of the loader plus the animation.
+// The background video mounts only after the page is ready, so it never competes
+// with the script, styles and font for bandwidth, and it is skipped for visitors
+// who have asked their browser to save data.
 import PropTypes from "prop-types";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { FaArrowRight, FaCode, FaDownload } from "react-icons/fa";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import { CV_URL, CV_FILENAME, SITE_NAME } from "../../data/site";
 import backgroundVideo from "../../assets/videos/blue.mp4";
+
+const SAVE_DATA = typeof navigator !== "undefined" && navigator.connection?.saveData === true;
 import "./Hero.css";
 
 const container = {
@@ -18,6 +28,12 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
+// For LCP candidates: movement only, never transparent.
+const paintedItem = {
+  hidden: { y: 30 },
+  show: { y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 export default function Hero({ ready = true }) {
   const reduce = useReducedMotion();
   const visible = ready || reduce;
@@ -25,14 +41,14 @@ export default function Hero({ ready = true }) {
 
   return (
     <section className="hero" id="home" aria-labelledby="hero-title">
-      {!reduce && (
+      {ready && !reduce && !SAVE_DATA && (
         <video
           className="hero-video"
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
           tabIndex={-1}
           disablePictureInPicture
@@ -42,38 +58,38 @@ export default function Hero({ ready = true }) {
       )}
       <div className="hero-overlay" aria-hidden="true" />
 
-      <motion.div
+      <m.div
         className="hero-content"
         variants={container}
         initial={reduce ? false : "hidden"}
         animate={visible ? "show" : "hidden"}
       >
-        <motion.a variants={item} href="#contact" className="hero-badge">
+        <m.a variants={item} href="#contact" className="hero-badge">
           <span className="badge-dot" aria-hidden="true" />
           Available for opportunities
           <FaArrowRight aria-hidden="true" focusable="false" />
-        </motion.a>
+        </m.a>
 
-        <motion.p variants={item} className="hero-greeting">
+        <m.p variants={item} className="hero-greeting">
           Hello, I&apos;m
-        </motion.p>
+        </m.p>
 
-        <motion.h1 variants={item} id="hero-title">
+        <m.h1 variants={paintedItem} id="hero-title">
           <span>{firstName}</span> <span>{lastName}</span>
-        </motion.h1>
+        </m.h1>
 
-        <motion.p variants={item} className="hero-role">
+        <m.p variants={paintedItem} className="hero-role">
           Full Stack Software Developer
-        </motion.p>
+        </m.p>
 
-        <motion.p variants={item} className="hero-description">
+        <m.p variants={paintedItem} className="hero-description">
           I design and build scalable, user focused web applications using <strong>React</strong>,{" "}
           <strong>Django</strong>, <strong>Python</strong>, <strong>PostgreSQL</strong> and{" "}
           <strong>JavaScript</strong>, turning ideas into secure, high performance solutions
           through cloud deployment, API integration, database design and automation.
-        </motion.p>
+        </m.p>
 
-        <motion.div variants={item} className="hero-buttons">
+        <m.div variants={item} className="hero-buttons">
           <a href="#projects" className="btn">
             <FaCode aria-hidden="true" focusable="false" />
             View projects
@@ -82,17 +98,17 @@ export default function Hero({ ready = true }) {
             <FaDownload aria-hidden="true" focusable="false" />
             Download CV
           </a>
-        </motion.div>
+        </m.div>
 
-        <motion.div variants={item}>
+        <m.div variants={item}>
           <SocialLinks className="hero-social" />
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         className="hero-image-wrapper"
-        initial={reduce ? false : { opacity: 0, scale: 0.92 }}
-        animate={visible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.92 }}
+        initial={reduce ? false : { scale: 0.92 }}
+        animate={visible ? { scale: 1 } : { scale: 0.92 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <div className={`hero-image${reduce ? "" : " is-floating"}`}>
@@ -105,7 +121,7 @@ export default function Hero({ ready = true }) {
             decoding="async"
           />
         </div>
-      </motion.div>
+      </m.div>
 
       <a href="#about" className="scroll-indicator" aria-label="Scroll to the About section">
         <span aria-hidden="true" />

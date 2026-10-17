@@ -20,24 +20,26 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Start downloading the hero portrait straight away -->
+    <!-- Start downloading the Latin font file straight away, in parallel with the CSS
+         that references it. Vite rewrites this path to the same hashed file the CSS uses,
+         so it is downloaded once. "crossorigin" is required for font preloads. -->
     <link
       rel="preload"
-      as="image"
-      href="/profile.webp"
-      type="image/webp"
-      fetchpriority="high"
+      href="/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
+
+    <!-- Start downloading the hero portrait straight away -->
+    <link rel="preload" as="image" href="/profile.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Eyongtarh Besong" />
     <meta property="og:url" content="https://eyongtarh.com/" />
-    <meta
-      property="og:title"
-      content="Eyongtarh Besong | Full Stack Software Developer"
-    />
+    <meta property="og:title" content="Eyongtarh Besong | Full Stack Software Developer" />
     <meta
       property="og:description"
       content="Projects, skills and experience in React, Django, Python and PostgreSQL."
@@ -46,26 +48,17 @@
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Eyongtarh Besong, Full Stack Software Developer"
-    />
+    <meta property="og:image:alt" content="Eyongtarh Besong, Full Stack Software Developer" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Eyongtarh Besong | Full Stack Software Developer"
-    />
+    <meta name="twitter:title" content="Eyongtarh Besong | Full Stack Software Developer" />
     <meta
       name="twitter:description"
       content="Projects, skills and experience in React, Django, Python and PostgreSQL."
     />
     <meta name="twitter:image" content="https://eyongtarh.com/og-image.webp" />
-    <meta
-      name="twitter:image:alt"
-      content="Eyongtarh Besong, Full Stack Software Developer"
-    />
+    <meta name="twitter:image:alt" content="Eyongtarh Besong, Full Stack Software Developer" />
 
     <!-- Structured data. Data blocks like this are not executed, so the CSP allows them. -->
     <script type="application/ld+json">
@@ -87,10 +80,7 @@
               "addressCountry": "SE"
             },
             "alumniOf": [
-              {
-                "@type": "CollegeOrUniversity",
-                "name": "University of Gothenburg"
-              },
+              { "@type": "CollegeOrUniversity", "name": "University of Gothenburg" },
               { "@type": "CollegeOrUniversity", "name": "University of Buea" },
               { "@type": "EducationalOrganization", "name": "Code Institute" }
             ],

@@ -26,9 +26,26 @@ test("waits for the minimum duration before reporting ready", async () => {
   expect(result.current).toBe(true);
 });
 
+test("does not wait for the load event by default", async () => {
+  setReadyState("loading");
+  const { result } = renderHook(() => usePageReady());
+
+  await act(async () => {
+    jest.advanceTimersByTime(299);
+  });
+  expect(result.current).toBe(false);
+
+  await act(async () => {
+    jest.advanceTimersByTime(1);
+  });
+  expect(result.current).toBe(true);
+});
+
 test("gives up at the maximum duration if the page never finishes loading", async () => {
   setReadyState("loading");
-  const { result } = renderHook(() => usePageReady({ minDuration: 600, maxDuration: 4000 }));
+  const { result } = renderHook(() =>
+    usePageReady({ minDuration: 600, maxDuration: 4000, waitForLoad: true })
+  );
 
   await act(async () => {
     jest.advanceTimersByTime(3999);
@@ -43,7 +60,9 @@ test("gives up at the maximum duration if the page never finishes loading", asyn
 
 test("becomes ready as soon as the load event fires after the minimum", async () => {
   setReadyState("loading");
-  const { result } = renderHook(() => usePageReady({ minDuration: 600, maxDuration: 4000 }));
+  const { result } = renderHook(() =>
+    usePageReady({ minDuration: 600, maxDuration: 4000, waitForLoad: true })
+  );
 
   await act(async () => {
     jest.advanceTimersByTime(1000);

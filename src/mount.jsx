@@ -1,6 +1,7 @@
 // Shared entry setup for every HTML page in the build (index.html and 404.html).
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { LazyMotion, domAnimation } from "framer-motion";
 import "@fontsource-variable/inter";
 import "./assets/styles/reset.css";
 import "./assets/styles/variables.css";
@@ -29,5 +30,14 @@ window.addEventListener("vite:preloadError", (event) => {
 export default function mount(element) {
   const container = document.getElementById("root");
   if (!container) throw new Error("Root element #root was not found.");
-  createRoot(container).render(<StrictMode>{element}</StrictMode>);
+  // LazyMotion with the "m" components loads only the animation features this site
+  // uses, roughly halving Framer Motion's share of the bundle. "strict" throws if a
+  // full "motion" component sneaks back in and undoes the saving.
+  createRoot(container).render(
+    <StrictMode>
+      <LazyMotion features={domAnimation} strict>
+        {element}
+      </LazyMotion>
+    </StrictMode>
+  );
 }

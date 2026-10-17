@@ -6,7 +6,7 @@ const projects = [
     github: "Tarh-Tastyhub",
     featured: true,
     order: 1,
-    title: "TastyHub",
+    title: "Tarh TastyHub",
     category: "Full Stack",
     highlight: "Restaurant ordering",
     description:
@@ -17,7 +17,14 @@ const projects = [
       alt: "Screenshot of the TastyHub home page",
     },
     demo: "https://tarh-tastyhub-4071346c00af.herokuapp.com",
-    technologies: ["Python", "Django", "PostgreSQL", "JavaScript", "Stripe", "AWS S3"],
+    technologies: [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "JavaScript",
+      "Stripe",
+      "AWS S3",
+    ],
   },
   {
     github: "Riders-Club-Project",
@@ -34,7 +41,14 @@ const projects = [
       alt: "Screenshot of the Riders Club home page",
     },
     demo: "https://riders-club-project-013aecf05a65.herokuapp.com",
-    technologies: ["Python", "Django", "PostgreSQL", "JavaScript", "HTML", "CSS"],
+    technologies: [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "JavaScript",
+      "HTML",
+      "CSS",
+    ],
   },
   {
     github: "Ekpaw-Spicies",

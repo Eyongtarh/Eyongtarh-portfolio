@@ -18,6 +18,7 @@ const projects = [
     },
     demo: "https://tarh-tastyhub-4071346c00af.herokuapp.com",
     technologies: [
+      "React Islands",
       "Python",
       "Django",
       "PostgreSQL",

@@ -8,7 +8,7 @@ A modern, responsive and accessible portfolio website showcasing my skills, expe
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?logo=javascript&logoColor=black)](#tech-stack)
 [![Tested with Jest](https://img.shields.io/badge/Tested%20with-Jest-C21325?logo=jest&logoColor=white)](#automated-tests)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](public/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Eyongtarh/Eyongtarh-portfolio)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Eyongtarh/Eyongtarh-portfolio)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-eyongtarh.com-000000?logo=vercel&logoColor=white)](https://eyongtarh.com)
@@ -688,7 +688,7 @@ If you found this project helpful, consider giving the repository a ⭐ on GitHu
 
 ## License
 
-This project is licensed under the [MIT Licence](public/LICENSE).
+This project is licensed under the [MIT Licence](LICENSE).
 
 ---
 

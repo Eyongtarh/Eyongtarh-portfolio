@@ -23,14 +23,23 @@ const experience = [
     location: "Sweden",
     start: "2024-02",
     end: null,
-    summary: "I develop modern, secure and scalable web applications for clients.",
+    summary:
+      "I develop modern, secure and scalable web applications for clients.",
     highlights: [
       "Develop full stack applications using React, Python, Django and PostgreSQL.",
       "Design RESTful APIs and responsive user interfaces.",
       "Build scalable, secure and user friendly web solutions.",
       "Collaborate with clients from concept through to deployment.",
     ],
-    skills: ["React", "JavaScript", "Python", "Django", "PostgreSQL", "REST API", "Git"],
+    skills: [
+      "React",
+      "JavaScript",
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "REST API",
+      "Git",
+    ],
   },
   {
     id: "budbee",
@@ -40,7 +49,8 @@ const experience = [
     location: "Sweden",
     start: "2022-12",
     end: "2024-03",
-    summary: "Supported daily operations through information systems management.",
+    summary:
+      "Supported daily operations through information systems management.",
     highlights: [
       "Managed information systems to support daily operations.",
       "Maintained accurate data and system records.",
@@ -179,7 +189,7 @@ const experience = [
     company: "Cameroon General Certificate of Education Board",
     location: "Cameroon",
     start: "2007",
-    end: "2008",
+    end: "2009",
     summary:
       "Assessed candidates' examination scripts in accordance with national group marking standards and examination guidelines.",
     highlights: [
@@ -205,7 +215,12 @@ const experience = [
       "Maintained strong customer relationships and ensured high quality service.",
       "Delegated and supervised daily operational activities.",
     ],
-    skills: ["Business Management", "Entrepreneurship", "Customer Service", "Operations Management"],
+    skills: [
+      "Business Management",
+      "Entrepreneurship",
+      "Customer Service",
+      "Operations Management",
+    ],
   },
   {
     id: "unics",
@@ -225,6 +240,7 @@ const experience = [
 ];
 
 // Plain string comparison works because dates are "YYYY" or "YYYY-MM".
-const newestFirst = (a, b) => (a.start < b.start ? 1 : a.start > b.start ? -1 : 0);
+const newestFirst = (a, b) =>
+  a.start < b.start ? 1 : a.start > b.start ? -1 : 0;
 
 export default Object.freeze([...experience].sort(newestFirst));
